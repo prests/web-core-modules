@@ -1,0 +1,10 @@
+{
+  "name": "@aindleads/boiler-room",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.5.2",
+  "description": "This package contains various boilerplate files for node applications",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "UNLICENSED"
+}

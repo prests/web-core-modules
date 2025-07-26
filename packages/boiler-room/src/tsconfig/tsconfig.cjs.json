@@ -1,0 +1,9 @@
+// Default config for cjs builds: packages' builds can extend this, but most should not need a cjs build today.
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6"
+  }
+}

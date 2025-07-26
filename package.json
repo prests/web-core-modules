@@ -1,0 +1,22 @@
+{
+  "name": "web-core-modules",
+  "description": "A pnpm workspaces monorepo for various AIndLeads shared packages/modules",
+  "private": true,
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "____ LIFECYCLE COMMANDS ____": "",
+    "postinstall": "pnpm run postinstall:setup-git-hooks",
+    "postinstall:setup-git-hooks": "git config core.hooksPath ./git-hooks"
+  },
+  "devDependencies": {
+    "lint-staged": "^16.1.2"
+  },
+  "license": "UNLICENSED"
+}

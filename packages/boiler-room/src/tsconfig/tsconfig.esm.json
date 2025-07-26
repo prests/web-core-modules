@@ -1,0 +1,21 @@
+// Default config for esm builds: packages' builds should extend this.
+// Each project should set 'rootDir', 'outDir', and optionally 'include' when extending this.
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    /* Modules */
+    "module": "esnext",
+    /* Emit */
+    "noEmit": false,
+    "declaration": true,
+    "sourceMap": true,
+    /* Language and Environment */
+  },
+  "exclude": [
+    "node_modules",
+    "**/__tests__",
+    "**/*.test.*",
+    "**/*.stories*"
+  ]
+}

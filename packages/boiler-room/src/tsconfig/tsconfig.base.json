@@ -1,0 +1,36 @@
+// Default ocnfig for typechcking: this is the base which all other tsconfigs extend.
+// Each project should set 'rootDir' and optionally 'include' when extending this.
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "AIndLeads Recommended",
+  "compilerOptions": {
+    // These are organized into the groups from https://www.typescriptlang.org/tsconfig, as of 11/23/2021
+    /* Type Checking */
+    "strict": true,
+    "allowUncreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    /* Modules */
+    "module": "commonjs",
+    "moduleResolution": "node",
+    /* Emit */
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true,
+    /* Interop Contraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Language and Environment */
+    "jsx": "react",
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

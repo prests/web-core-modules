@@ -1,3 +1,3 @@
-import { baseReactESLintConfig } from '@aindleads/boiler-room/eslint';
+import { baseNodeESLintConfig } from '@wcm/boiler-room/eslint';
 
-export default [...baseReactESLintConfig];
+export default [...baseNodeESLintConfig];

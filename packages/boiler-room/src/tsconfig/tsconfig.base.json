@@ -2,7 +2,7 @@
 // Each project should set 'rootDir' and optionally 'include' when extending this.
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "AIndLeads Recommended",
+  "display": "WCM Recommended",
   "compilerOptions": {
     // These are organized into the groups from https://www.typescriptlang.org/tsconfig, as of 11/23/2021
     /* Type Checking */
@@ -27,7 +27,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     /* Language and Environment */
-    "jsx": "react",
+    "jsx": "react-jsx",
     "skipLibCheck": true
   },
   "exclude": ["node_modules", "build", "dist", "storybook-static"]

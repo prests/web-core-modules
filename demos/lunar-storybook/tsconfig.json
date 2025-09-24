@@ -1,4 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@aindleads/boiler-room/tsconfig/base.json"
+  "extends": "@wcm/boiler-room/tsconfig/browser.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src", ".storybook/**/*", "vite.config.ts", "vitest.setup.ts"],
+  "exclude": ["node_modules", "storybook-static"]
 }

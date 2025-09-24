@@ -6,6 +6,7 @@
   "compilerOptions": {
     /* Modules */
     "module": "esnext",
+    "moduleResolution": "bundler",
     /* Emit */
     "noEmit": false,
     "declaration": true,

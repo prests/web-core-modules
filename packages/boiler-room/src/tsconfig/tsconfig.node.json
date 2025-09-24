@@ -1,0 +1,12 @@
+// Node.js-specific TypeScript configuration extending the base config
+// Use this for Node.js applications, CLI tools, and server-side code
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
+  "display": "WCM Node",
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2022"],
+    "types": ["node"]
+  }
+}

@@ -1,11 +1,1 @@
-interface Test {
-  foo: string;
-}
-
-const foo = () => {
-  console.log('hello world');
-  console.log('new');
-};
-
-export type { Test };
-export { foo };
+export { default as Button, type ButtonProps } from './components/primitives/Button/Button.js';

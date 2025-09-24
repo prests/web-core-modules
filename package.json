@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "web-core-modules",
-  "description": "A pnpm workspaces monorepo for various AIndLeads shared packages/modules",
+  "description": "A pnpm workspaces monorepo for various WCM (Web Core Modules) shared packages/modules",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.5.2",
@@ -11,21 +11,22 @@
   "scripts": {
     "____ WORKSPACE COMMANDS ____": "",
     "build": "pnpm -r build",
-    "dev": "pnpm -r dev",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
     "format": "prettier --write .",
     "format:verify": "prettier --list-different .",
     "____ LIFECYCLE COMMANDS ____": "",
-    "postinstall": "pnpm run postinstall:setup-git-hooks",
+    "postinstall": "pnpm run postinstall:setup-git-hooks && pnpm run build",
     "postinstall:setup-git-hooks": "git config core.hooksPath ./git-hooks"
   },
   "devDependencies": {
-    "@aindleads/boiler-room": "workspace:^",
+    "@wcm/boiler-room": "workspace:^",
     "eslint": "^9.32.0",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
+    "tsdown": "^0.13.0",
     "typescript": "^5.8.3"
   },
   "license": "UNLICENSED"

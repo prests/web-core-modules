@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@aindleads/boiler-room",
+  "name": "@wcm/boiler-room",
   "version": "1.0.0",
   "type": "module",
   "packageManager": "pnpm@10.5.2",
@@ -19,6 +19,8 @@
       }
     },
     "./tsconfig/base.json": "./src/tsconfig/tsconfig.base.json",
+    "./tsconfig/browser.json": "./src/tsconfig/tsconfig.browser.json",
+    "./tsconfig/node.json": "./src/tsconfig/tsconfig.node.json",
     "./tsconfig/cjs.json": "./src/tsconfig/tsconfig.cjs.json",
     "./tsconfig/esm.json": "./src/tsconfig/tsconfig.esm.json"
   },

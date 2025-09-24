@@ -6,15 +6,21 @@
   "type": "module",
   "scripts": {
     "____ RUN COMMANDS ____": "",
-    "dev": "storybook dev -p 6006",
+    "dev": "storybook dev -c src -p 6006",
     "____ BUILD COMMANDS ____": "",
-    "build-storybook": "storybook build",
+    "build": "pnpm run clean:build && pnpm run build:storybook",
+    "build:storybook": "storybook build",
     "____ VALIDATION COMMANDS ____": "",
     "lint": "eslint --max-warnings=0 .",
     "lint:fix": "pnpm run lint --fix",
-    "typecheck": "tsc -p ./tsconfig.json --noEmit"
+    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "____ CLEANUP COMMANDS ____": "",
+    "clean": "pnpm run clean:build",
+    "clean:build": "rimraf storybook-static"
   },
   "dependencies": {
+    "@wcm/lunar": "workspace:^",
+    "@vanilla-extract/css": "^1.17.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -27,12 +33,17 @@
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vanilla-extract/vite-plugin": "^5.1.1",
+    "@vitejs/plugin-react": "^4.7.0",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
+    "autoprefixer": "^10.4.21",
     "eslint-plugin-storybook": "^9.0.18",
     "playwright": "^1.54.1",
     "prop-types": "^15.8.1",
     "storybook": "^9.0.18",
+    "vite": "^7.0.6",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
   "license": "UNLICENSED"

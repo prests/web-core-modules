@@ -5,7 +5,7 @@ import typescript from 'typescript-eslint';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import type { Linter } from 'eslint';
 
-import { WARN, ERROR } from './constants.js';
+import { ERROR, OFF } from './constants.js';
 
 const baseNodeESLintConfig = [
   {
@@ -13,10 +13,6 @@ const baseNodeESLintConfig = [
   },
   {
     languageOptions: {
-      parser: typescript.parser,
-      parserOptions: {
-        project: true,
-      },
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -25,23 +21,44 @@ const baseNodeESLintConfig = [
   },
   js.configs.recommended,
   prettier,
-  ...typescript.configs.strictTypeChecked,
-  ...typescript.configs.stylisticTypeChecked,
   eslintPluginUnicorn.configs.recommended,
 
+  /* JavaScript files get basic rules without TypeScript parser */
+  {
+    files: ['**/*.js', '**/*.jsx'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    rules: {
+      'unicorn/no-null': OFF,
+    },
+  },
+
   /* Typescript files get extra Typescirpt rules */
+  ...typescript.configs.strictTypeChecked.map(config => ({
+    ...config,
+    files: ['**/*.ts', '**/*.tsx'],
+  })),
+  ...typescript.configs.stylisticTypeChecked.map(config => ({
+    ...config,
+    files: ['**/*.ts', '**/*.tsx'],
+  })),
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: typescript.parser,
       parserOptions: {
         project: true,
       },
     },
     rules: {
-      '@typescript-eslint/consistent-type-imports': [WARN, { disallowTypeAnnotations: false }],
+      '@typescript-eslint/consistent-type-imports': [ERROR, { disallowTypeAnnotations: false }],
+      '@typescript-eslint/consistent-type-exports': [ERROR, { fixMixedExportsWithInlineTypeSpecifier: false }],
       'func-names': ERROR,
       '@typescript-eslint/no-empty-function': ERROR,
+      'unicorn/no-null': OFF,
     },
   },
 ] as Linter.Config[];

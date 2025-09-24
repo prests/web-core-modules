@@ -1,4 +1,4 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@aindleads/boiler-room/tsconfig/base.json"
+  "extends": "@wcm/boiler-room/tsconfig/base.json"
 }

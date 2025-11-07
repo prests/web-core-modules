@@ -9,10 +9,13 @@
     "node": ">=24.0.0"
   },
   "scripts": {
+    "____ RUN COMMANDS ____": "",
+    "dev:lunar": "concurrently 'pnpm -F @wcm/lunar dev' 'pnpm -F lunar-storybook dev'",
     "____ WORKSPACE COMMANDS ____": "",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
     "typecheck": "pnpm -r typecheck",
     "format": "prettier --write .",
     "format:verify": "prettier --list-different .",
@@ -22,6 +25,7 @@
   },
   "devDependencies": {
     "@wcm/boiler-room": "workspace:^",
+    "concurrently": "^9.2.1",
     "eslint": "^9.32.0",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",

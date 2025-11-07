@@ -3,7 +3,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-//import storybook from 'eslint-plugin-storybook';
+import storybook from 'eslint-plugin-storybook';
 
 import { baseNodeESLintConfig } from './eslint-node.config.js';
 import { ERROR, OFF } from './constants.js';
@@ -29,6 +29,7 @@ const baseReactESLintConfig = [
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
   reactRefresh.configs.recommended,
+  ...storybook.configs['flat/recommended'],
 
   /* Storybook files can use PascalCase naming */
   {

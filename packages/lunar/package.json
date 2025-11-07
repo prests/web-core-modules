@@ -14,12 +14,7 @@
         "default": "./dist/index.js"
       }
     },
-    "./tokens": {
-      "import": {
-        "types": "./dist/tokens.css.d.ts",
-        "default": "./dist/tokens.css.js"
-      }
-    },
+    "./src/*": "./src/*",
     "./package.json": "./package.json"
   },
   "files": [

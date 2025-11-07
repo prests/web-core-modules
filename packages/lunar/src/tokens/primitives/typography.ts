@@ -1,4 +1,4 @@
-export const fontFamily = {
+export const FONT_FAMILY = {
   sans: [
     'ui-sans-serif',
     'system-ui',
@@ -21,7 +21,7 @@ export const fontFamily = {
   ],
 } as const;
 
-export const fontSize = {
+export const FONT_SIZE = {
   xs: '0.75rem', // 12px
   sm: '0.875rem', // 14px
   base: '1rem', // 16px
@@ -37,7 +37,7 @@ export const fontSize = {
   '9xl': '8rem', // 128px
 } as const;
 
-export const fontWeight = {
+export const FONT_WEIGHT = {
   thin: '100',
   extralight: '200',
   light: '300',
@@ -49,7 +49,7 @@ export const fontWeight = {
   black: '900',
 } as const;
 
-export const lineHeight = {
+export const LINE_HEIGHT = {
   none: '1',
   tight: '1.25',
   snug: '1.375',
@@ -66,7 +66,7 @@ export const lineHeight = {
   10: '2.5rem',
 } as const;
 
-export const letterSpacing = {
+export const LETTER_SPACING = {
   tighter: '-0.05em',
   tight: '-0.025em',
   normal: '0em',

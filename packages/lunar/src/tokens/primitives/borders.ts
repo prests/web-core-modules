@@ -1,4 +1,4 @@
-export const borderRadius = {
+const BORDER_RADIUS = {
   none: '0',
   sm: '0.125rem', // 2px
   base: '0.25rem', // 4px
@@ -10,10 +10,12 @@ export const borderRadius = {
   full: '9999px',
 } as const;
 
-export const borderWidth = {
+const BORDER_WIDTH = {
   0: '0',
   1: '1px',
   2: '2px',
   4: '4px',
   8: '8px',
 } as const;
+
+export { BORDER_WIDTH, BORDER_RADIUS };

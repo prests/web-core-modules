@@ -5,7 +5,7 @@ import {
   createMapValueFn,
 } from '@vanilla-extract/sprinkles';
 
-import { themeContract } from '../tokens/themes/contract.css.js';
+import { themeContract } from '../tokens/tokens.css.js';
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -188,12 +188,12 @@ const colorProperties = defineProperties({
   },
 });
 
-const utilities = createSprinkles(responsiveProperties, colorProperties);
+const atomic = createSprinkles(responsiveProperties, colorProperties);
 
-type Utilities = Parameters<typeof utilities>[0];
+type Utilities = Parameters<typeof atomic>[0];
 
 const normalizeResponsiveValue = createNormalizeValueFn(responsiveProperties);
 const mapResponsiveValue = createMapValueFn(responsiveProperties);
 
 export type { Utilities };
-export { utilities, normalizeResponsiveValue, mapResponsiveValue };
+export { atomic, normalizeResponsiveValue, mapResponsiveValue };

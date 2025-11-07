@@ -1,4 +1,4 @@
-export const spacing = {
+const SPACING = {
   0: '0',
   px: '1px',
   0.5: '0.125rem', // 2px
@@ -35,3 +35,5 @@ export const spacing = {
   80: '20rem', // 320px
   96: '24rem', // 384px
 } as const;
+
+export { SPACING };

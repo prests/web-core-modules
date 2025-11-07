@@ -1,6 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css';
 
-import { themeContract } from '../tokens/themes/contract.css.js';
+import { themeContract } from '../tokens/tokens.css.js';
 
 globalStyle('html', {
   fontFamily: 'ui-sans-serif, system-ui, sans-serif',

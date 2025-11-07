@@ -34,6 +34,7 @@ const baseNodeESLintConfig = [
     },
     rules: {
       'unicorn/no-null': OFF,
+      'unicorn/prevent-abbreviations': OFF,
     },
   },
 
@@ -59,6 +60,7 @@ const baseNodeESLintConfig = [
       'func-names': ERROR,
       '@typescript-eslint/no-empty-function': ERROR,
       'unicorn/no-null': OFF,
+      'unicorn/prevent-abbreviations': OFF,
     },
   },
 ] as Linter.Config[];

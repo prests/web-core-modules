@@ -1,0 +1,9 @@
+# Files and directories to exclude from Prettier formatting
+# Add patterns here to prevent Prettier from formatting specific files
+#
+# NOTE: Prettier automatically respects .gitignore patterns, so consider
+# adding files to .gitignore instead if they should be ignored by both
+# Git and Prettier. Only add patterns here for files that are tracked
+# by Git but should not be formatted by Prettier.
+
+pnpm-lock.yaml

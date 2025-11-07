@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
+import { withThemeByClassName } from '@storybook/addon-themes';
 
-import './main.css';
+import { lightTheme, darkTheme } from '@wcm/lunar/src/index.js';
 
 const preview: Preview = {
   parameters: {
@@ -18,6 +19,15 @@ const preview: Preview = {
       test: 'todo',
     },
   },
+  decorators: [
+    withThemeByClassName({
+      themes: {
+        light: lightTheme,
+        dark: darkTheme,
+      },
+      defaultTheme: 'light',
+    }),
+  ],
 };
 
 export default preview;

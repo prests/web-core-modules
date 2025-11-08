@@ -17,30 +17,11 @@ export { themeContract } from './tokens/tokens.css.js';
 
 export {
   COLORS__PURE,
-  COLORS__SLATE,
   COLORS__STONE,
-  COLORS__NEUTRAL,
   COLORS__RED,
-  COLORS__BROWN,
-  COLORS__ORANGE,
-  COLORS__AMBER,
-  COLORS__YELLOW,
-  COLORS__LIME,
   COLORS__GREEN,
-  COLORS__EMERALD,
-  COLORS__TURQUOISE,
-  COLORS__TEAL,
-  COLORS__CYAN,
-  COLORS__BLUE,
-  COLORS__NAVY,
-  COLORS__INDIGO,
-  COLORS__VIOLET,
-  COLORS__LAVENDER,
-  COLORS__PURPLE,
-  COLORS__FUCHSIA,
-  COLORS__PLUM,
-  COLORS__PINK,
-  COLORS__ROSE,
+  COLORS__GOLD,
+  COLORS__PEARL,
 } from './tokens/primitives/colors.js';
 
 export { SPACING } from './tokens/primitives/spacing.js';

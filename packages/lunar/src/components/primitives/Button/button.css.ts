@@ -19,50 +19,36 @@ const buttonVariants = recipe({
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 2,
       borderRadius: 'md',
       fontSize: 'sm',
       fontWeight: 'medium',
+      borderWidth: 1,
     }),
     {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 2,
-      border: '0',
+      gap: '0.5rem',
       whiteSpace: 'nowrap',
       transition: 'all 0.2s ease-in-out',
       flexShrink: 0,
       outline: 'none',
+      cursor: 'pointer',
+      userSelect: 'none',
+      position: 'relative',
+      textDecoration: 'none',
       ':disabled': {
         pointerEvents: 'none',
-        opacity: '0.5',
+        cursor: 'not-allowed',
       },
       ':focus-visible': {
-        borderColor: 'var(--color-ring)',
-        boxShadow: '0 0 0 3px var(--color-ring-50)',
+        boxShadow: '0 0 0 2px var(--colors-shadow-focus)',
+        outline: '2px solid transparent',
+        outlineOffset: '2px',
       },
       selectors: {
-        // '&[aria-invalid="true"]': {
-        //   borderColor: 'var(--color-destructive)',
-        //   boxShadow: '0 0 0 3px var(--color-destructive-20)',
-        // },
-        // '& svg': {
-        //   pointerEvents: 'none',
-        //   flexShrink: 0,
-        // },
-        // '& svg:not([class*="size-"])': {
-        //   width: '1rem',
-        //   height: '1rem',
-        // },
-      },
-      '@media': {
-        '(prefers-color-scheme: dark)': {
-          selectors: {
-            '&[aria-invalid="true"]': {
-              boxShadow: '0 0 0 3px var(--color-destructive-40)',
-            },
-          },
+        '& svg': {
+          pointerEvents: 'none',
+          flexShrink: 0,
+          width: '1rem',
+          height: '1rem',
         },
       },
     },
@@ -72,22 +58,156 @@ const buttonVariants = recipe({
       [BUTTON_VARIANT__PRIMARY]: [
         atomic({
           backgroundColor: 'action.primary',
+          borderColor: 'border.action.primary',
+          color: 'text.inverse',
         }),
+        {
+          ':hover:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-primary-hover)',
+            boxShadow: '0 1px 3px var(--colors-shadow-subtle)',
+          },
+          ':active:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-primary-active)',
+            transform: 'translateY(1px)',
+          },
+          ':disabled': {
+            backgroundColor: 'var(--colors-action-primary-disabled)',
+            borderColor: 'var(--colors-border-action-disabled)',
+            color: 'var(--colors-text-disabled)',
+          },
+        },
       ],
-      [BUTTON_VARIANT__SECONDARY]: atomic({
-        backgroundColor: 'action.secondary',
-      }),
-      [BUTTON_VARIANT__OUTLINE]: atomic({}),
-      [BUTTON_VARIANT__DESTRUCTIVE]: atomic({
-        backgroundColor: 'action.destructive',
-      }),
-      [BUTTON_VARIANT__GHOST]: atomic({}),
-      [BUTTON_VARIANT__LINK]: atomic({}),
+      [BUTTON_VARIANT__SECONDARY]: [
+        atomic({
+          backgroundColor: 'action.secondary',
+          borderColor: 'border.action.secondary',
+          color: 'text.primary',
+        }),
+        {
+          ':hover:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-secondary-hover)',
+            boxShadow: '0 1px 3px var(--colors-shadow-subtle)',
+          },
+          ':active:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-secondary-active)',
+            transform: 'translateY(1px)',
+          },
+          ':disabled': {
+            backgroundColor: 'var(--colors-action-secondary-disabled)',
+            borderColor: 'var(--colors-border-action-disabled)',
+            color: 'var(--colors-text-disabled)',
+          },
+        },
+      ],
+      [BUTTON_VARIANT__OUTLINE]: [
+        atomic({
+          backgroundColor: 'surface.bg.primary',
+          borderColor: 'border.interactive',
+          color: 'text.interactive',
+        }),
+        {
+          ':hover:not(:disabled)': {
+            backgroundColor: 'var(--colors-surface-bg-interactive-hover)',
+            borderColor: 'var(--colors-border-interactive-hover)',
+            color: 'var(--colors-text-interactive-hover)',
+          },
+          ':active:not(:disabled)': {
+            backgroundColor: 'var(--colors-surface-bg-interactive-active)',
+            borderColor: 'var(--colors-border-interactive-active)',
+            color: 'var(--colors-text-interactive-active)',
+            transform: 'translateY(1px)',
+          },
+          ':disabled': {
+            backgroundColor: 'var(--colors-surface-bg-disabled)',
+            borderColor: 'var(--colors-border-action-disabled)',
+            color: 'var(--colors-text-disabled)',
+          },
+        },
+      ],
+      [BUTTON_VARIANT__DESTRUCTIVE]: [
+        atomic({
+          backgroundColor: 'action.destructive',
+          borderColor: 'border.action.destructive',
+          color: 'text.inverse',
+        }),
+        {
+          ':hover:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-destructive-hover)',
+            boxShadow: '0 1px 3px var(--colors-shadow-subtle)',
+          },
+          ':active:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-destructive-active)',
+            transform: 'translateY(1px)',
+          },
+          ':disabled': {
+            backgroundColor: 'var(--colors-action-destructive-disabled)',
+            borderColor: 'var(--colors-border-action-disabled)',
+            color: 'var(--colors-text-disabled)',
+          },
+        },
+      ],
+      [BUTTON_VARIANT__GHOST]: [
+        atomic({
+          backgroundColor: 'action.ghost',
+          borderColor: 'action.ghost',
+          color: 'text.interactive',
+        }),
+        {
+          ':hover:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-ghost-hover)',
+            color: 'var(--colors-text-interactive-hover)',
+          },
+          ':active:not(:disabled)': {
+            backgroundColor: 'var(--colors-action-ghost-active)',
+            color: 'var(--colors-text-interactive-active)',
+            transform: 'translateY(1px)',
+          },
+          ':disabled': {
+            backgroundColor: 'var(--colors-action-ghost-disabled)',
+            color: 'var(--colors-text-disabled)',
+          },
+        },
+      ],
+      [BUTTON_VARIANT__LINK]: [
+        atomic({
+          backgroundColor: 'action.ghost',
+          borderColor: 'action.ghost',
+          color: 'text.interactive',
+        }),
+        {
+          textDecoration: 'underline',
+          textUnderlineOffset: '4px',
+          ':hover:not(:disabled)': {
+            backgroundColor: 'transparent',
+            color: 'var(--colors-text-interactive-hover)',
+            textDecoration: 'underline',
+          },
+          ':active:not(:disabled)': {
+            color: 'var(--colors-text-interactive-active)',
+          },
+          ':disabled': {
+            color: 'var(--colors-text-disabled)',
+            textDecoration: 'none',
+          },
+        },
+      ],
     },
     size: {
-      [BUTTON_SIZE__SMALL]: atomic({}),
-      [BUTTON_SIZE__MEDIUM]: atomic({}),
-      [BUTTON_SIZE__LARGE]: atomic({}),
+      [BUTTON_SIZE__SMALL]: atomic({
+        paddingX: 3,
+        paddingY: 1.5,
+        fontSize: 'xs',
+      }),
+      [BUTTON_SIZE__MEDIUM]: atomic({
+        paddingX: 4,
+        paddingY: 2,
+        fontSize: 'sm',
+      }),
+      [BUTTON_SIZE__LARGE]: atomic({
+        paddingX: 6,
+        paddingY: 3,
+        fontSize: 'base',
+      }),
     },
   },
   defaultVariants: {

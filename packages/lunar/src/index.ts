@@ -11,8 +11,6 @@ export {
   BUTTON_SIZE__SMALL,
 } from './components/primitives/Button/button.css.js';
 
-export { lightTheme } from './themes/light.css.js';
-export { darkTheme } from './themes/dark.css.js';
 export { regalTheme } from './themes/regal.css.js';
 export { themeContract } from './tokens/tokens.css.js';
 

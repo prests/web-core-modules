@@ -22,7 +22,6 @@ const withColorSchemeByClassName = ({
 
     useEffect(() => {
       const colorSchemeClassName = colorScheme === 'dark' ? dark : light;
-      console.log(colorSchemeClassName);
 
       const parentElement = document.querySelector(parentSelector);
       if (!parentElement) {

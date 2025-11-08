@@ -254,4 +254,3 @@ const regalThemeVars = createTheme(themeContract, {
 });
 
 export const regalTheme = style([regalThemeVars, { colorScheme: 'light dark' }]);
-

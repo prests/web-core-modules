@@ -22,6 +22,7 @@ export {
   COLORS__GREEN,
   COLORS__GOLD,
   COLORS__PEARL,
+  COLORS__YELLOW,
 } from './tokens/primitives/colors.js';
 
 export { SPACING } from './tokens/primitives/spacing.js';

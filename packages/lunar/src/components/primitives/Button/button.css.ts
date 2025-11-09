@@ -1,6 +1,8 @@
+import { createVar } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { atomic } from '../../../styles/atomic.css.js';
+import { themeContract } from '../../../tokens/tokens.css.js';
+import { withCustomOutline, withSafeTransition } from '../../../styles/utilities.css.js';
 
 const BUTTON_VARIANT__PRIMARY = 'primary';
 const BUTTON_VARIANT__SECONDARY = 'secondary';
@@ -13,193 +15,203 @@ const BUTTON_SIZE__LARGE = 'large';
 const BUTTON_SIZE__MEDIUM = 'medium';
 const BUTTON_SIZE__SMALL = 'small';
 
+const internalFontSize = createVar();
+const internalPadding = createVar();
+
 const buttonVariants = recipe({
   base: [
-    atomic({
+    withCustomOutline(themeContract.colors['shadow.interactive']),
+    withSafeTransition({ transition: 'all 0.2s ease-in-out' }),
+    {
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 'md',
-      fontSize: 'sm',
-      fontWeight: 'medium',
-      borderWidth: 1,
-    }),
-    {
+      borderRadius: themeContract.borderRadius.md,
+      fontSize: internalFontSize,
+      padding: internalPadding,
+      fontWeight: themeContract.fontWeight.medium,
       gap: '0.5rem',
       whiteSpace: 'nowrap',
-      transition: 'all 0.2s ease-in-out',
       flexShrink: 0,
-      outline: 'none',
+      border: '0',
       cursor: 'pointer',
       userSelect: 'none',
       position: 'relative',
       textDecoration: 'none',
       ':disabled': {
-        pointerEvents: 'none',
         cursor: 'not-allowed',
-      },
-      ':focus-visible': {
-        boxShadow: '0 0 0 2px var(--colors-shadow-focus)',
-        outline: '2px solid transparent',
-        outlineOffset: '2px',
       },
     },
   ],
   variants: {
     type: {
-      [BUTTON_VARIANT__PRIMARY]: [
-        atomic({
-          backgroundColor: 'action.primary',
-          borderColor: 'border.action.primary',
-          color: 'text.inverse',
-        }),
-        {
-          ':hover:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-primary-hover)',
-            boxShadow: '0 1px 3px var(--colors-shadow-subtle)',
+      [BUTTON_VARIANT__PRIMARY]: {
+        backgroundColor: themeContract.colors['action.bg.primary'],
+        color: themeContract.colors['action.color.primary'],
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.bg.primary.hover'],
           },
-          ':active:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-primary-active)',
+          '&:hover:not(:focus-visible)': {
+            boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
+          },
+          '&:active:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.bg.primary.active'],
             transform: 'translateY(1px)',
-          },
-          ':disabled': {
-            backgroundColor: 'var(--colors-action-primary-disabled)',
-            borderColor: 'var(--colors-border-action-disabled)',
-            color: 'var(--colors-text-disabled)',
           },
         },
-      ],
-      [BUTTON_VARIANT__SECONDARY]: [
-        atomic({
-          backgroundColor: 'action.secondary',
-          borderColor: 'border.action.secondary',
-          color: 'text.primary',
-        }),
-        {
-          ':hover:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-secondary-hover)',
-            boxShadow: '0 1px 3px var(--colors-shadow-subtle)',
+        ':disabled': {
+          backgroundColor: themeContract.colors['action.bg.primary.disabled'],
+          color: themeContract.colors['text.disabled'],
+        },
+      },
+      [BUTTON_VARIANT__SECONDARY]: {
+        backgroundColor: themeContract.colors['action.bg.secondary'],
+        borderColor: themeContract.colors['border.action.secondary'],
+        color: themeContract.colors['text.primary'],
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.bg.secondary.hover'],
+            boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
           },
-          ':active:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-secondary-active)',
+          '&:active:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.bg.secondary.active'],
             transform: 'translateY(1px)',
-          },
-          ':disabled': {
-            backgroundColor: 'var(--colors-action-secondary-disabled)',
-            borderColor: 'var(--colors-border-action-disabled)',
-            color: 'var(--colors-text-disabled)',
           },
         },
-      ],
-      [BUTTON_VARIANT__OUTLINE]: [
-        atomic({
-          backgroundColor: 'surface.bg.primary',
-          borderColor: 'border.interactive',
-          color: 'text.interactive',
-        }),
-        {
-          ':hover:not(:disabled)': {
-            backgroundColor: 'var(--colors-surface-bg-interactive-hover)',
-            borderColor: 'var(--colors-border-interactive-hover)',
-            color: 'var(--colors-text-interactive-hover)',
+        ':disabled': {
+          backgroundColor: themeContract.colors['action.bg.secondary.disabled'],
+          color: themeContract.colors['text.disabled'],
+        },
+      },
+      [BUTTON_VARIANT__OUTLINE]: {
+        backgroundColor: themeContract.colors['action.bg.outline'],
+        border: themeContract.borderWidth[1],
+        borderStyle: 'solid',
+        borderColor: themeContract.colors['border.interactive'],
+        color: themeContract.colors['text.interactive'],
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.bg.outline.hover'],
+            borderColor: themeContract.colors['border.interactive.hover'],
+            color: themeContract.colors['text.interactive.hover'],
+            boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
           },
-          ':active:not(:disabled)': {
-            backgroundColor: 'var(--colors-surface-bg-interactive-active)',
-            borderColor: 'var(--colors-border-interactive-active)',
-            color: 'var(--colors-text-interactive-active)',
+          '&:active:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.bg.outline.active'],
+            borderColor: themeContract.colors['border.interactive.active'],
+            color: themeContract.colors['text.interactive.active'],
             transform: 'translateY(1px)',
           },
+        },
+        ':disabled': {
+          backgroundColor: themeContract.colors['action.bg.outline.disabled'],
+          borderColor: themeContract.colors['border.action.disabled'],
+          color: themeContract.colors['action.color.outline.disabled'],
+        },
+      },
+      [BUTTON_VARIANT__GHOST]: {
+        backgroundColor: themeContract.colors['action.ghost'],
+        borderColor: themeContract.colors['action.ghost'],
+        color: themeContract.colors['text.interactive'],
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.ghost.hover'],
+            color: themeContract.colors['text.interactive.hover'],
+          },
+          '&:active:not(:disabled)': {
+            backgroundColor: themeContract.colors['action.ghost.active'],
+            color: themeContract.colors['text.interactive.active'],
+            transform: 'translateY(1px)',
+          },
+        },
+        ':disabled': {
+          backgroundColor: themeContract.colors['action.ghost.disabled'],
+          color: themeContract.colors['text.disabled'],
+        },
+      },
+      [BUTTON_VARIANT__LINK]: [
+        withSafeTransition({
+          transition: 'background-size 400ms',
+        }),
+        {
+          alignSelf: 'center',
+          color: themeContract.colors['text.interactive'],
+          background: `none, linear-gradient(to right, ${themeContract.colors['text.interactive.hover']}, ${themeContract.colors['text.interactive.hover']})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: '100% 100%, 0 100%',
+          backgroundSize: `100% calc(${internalFontSize} / 4), 0 calc(${internalFontSize} / 4)`,
+          borderRadius: themeContract.borderRadius.none,
+          textWrap: 'nowrap',
+          padding: '0',
+          paddingBottom: '0.2em',
+          height: 'min-content',
+          selectors: {
+            '&:hover:not(:disabled)': {
+              backgroundSize: `0 calc(${internalFontSize} / 4), 100% calc(${internalFontSize} / 4)`,
+              color: themeContract.colors['text.interactive.hover'],
+            },
+            '&:focus:not(:disabled)': {
+              backgroundSize: `0 calc(${internalFontSize} / 4), 100% calc(${internalFontSize} / 4)`,
+              color: themeContract.colors['text.interactive.hover'],
+            },
+            '&:active:not(:disabled)': {
+              backgroundSize: `0 calc(${internalFontSize} / 4), 100% calc(${internalFontSize} / 4)`,
+              color: themeContract.colors['text.interactive.active'],
+            },
+          },
           ':disabled': {
-            backgroundColor: 'var(--colors-surface-bg-disabled)',
-            borderColor: 'var(--colors-border-action-disabled)',
-            color: 'var(--colors-text-disabled)',
+            color: themeContract.colors['text.disabled'],
+            textDecoration: 'none',
+          },
+          ':focus-visible': {
+            boxShadow: 'none',
           },
         },
       ],
       [BUTTON_VARIANT__DESTRUCTIVE]: [
-        atomic({
-          backgroundColor: 'action.destructive',
-          borderColor: 'border.action.destructive',
-          color: 'text.inverse',
-        }),
+        withCustomOutline(themeContract.colors['shadow.destructive']),
         {
-          ':hover:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-destructive-hover)',
-            boxShadow: '0 1px 3px var(--colors-shadow-subtle)',
-          },
-          ':active:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-destructive-active)',
-            transform: 'translateY(1px)',
+          backgroundColor: themeContract.colors['action.destructive'],
+          borderColor: themeContract.colors['border.action.destructive'],
+          color: themeContract.colors['text.inverse'],
+          selectors: {
+            '&:hover:not(:disabled)': {
+              backgroundColor: themeContract.colors['action.destructive.hover'],
+              boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
+            },
+            '&:active:not(:disabled)': {
+              backgroundColor: themeContract.colors['action.destructive.active'],
+              transform: 'translateY(1px)',
+            },
           },
           ':disabled': {
-            backgroundColor: 'var(--colors-action-destructive-disabled)',
-            borderColor: 'var(--colors-border-action-disabled)',
-            color: 'var(--colors-text-disabled)',
-          },
-        },
-      ],
-      [BUTTON_VARIANT__GHOST]: [
-        atomic({
-          backgroundColor: 'action.ghost',
-          borderColor: 'action.ghost',
-          color: 'text.interactive',
-        }),
-        {
-          ':hover:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-ghost-hover)',
-            color: 'var(--colors-text-interactive-hover)',
-          },
-          ':active:not(:disabled)': {
-            backgroundColor: 'var(--colors-action-ghost-active)',
-            color: 'var(--colors-text-interactive-active)',
-            transform: 'translateY(1px)',
-          },
-          ':disabled': {
-            backgroundColor: 'var(--colors-action-ghost-disabled)',
-            color: 'var(--colors-text-disabled)',
-          },
-        },
-      ],
-      [BUTTON_VARIANT__LINK]: [
-        atomic({
-          backgroundColor: 'action.ghost',
-          borderColor: 'action.ghost',
-          color: 'text.interactive',
-        }),
-        {
-          textDecoration: 'underline',
-          textUnderlineOffset: '4px',
-          ':hover:not(:disabled)': {
-            backgroundColor: 'transparent',
-            color: 'var(--colors-text-interactive-hover)',
-            textDecoration: 'underline',
-          },
-          ':active:not(:disabled)': {
-            color: 'var(--colors-text-interactive-active)',
-          },
-          ':disabled': {
-            color: 'var(--colors-text-disabled)',
-            textDecoration: 'none',
+            backgroundColor: themeContract.colors['action.destructive.disabled'],
+            borderColor: themeContract.colors['border.action.disabled'],
+            color: themeContract.colors['text.disabled'],
           },
         },
       ],
     },
     size: {
-      [BUTTON_SIZE__SMALL]: atomic({
-        paddingX: 3,
-        paddingY: 1.5,
-        fontSize: 'xs',
-      }),
-      [BUTTON_SIZE__MEDIUM]: atomic({
-        paddingX: 4,
-        paddingY: 2,
-        fontSize: 'sm',
-      }),
-      [BUTTON_SIZE__LARGE]: atomic({
-        paddingX: 6,
-        paddingY: 3,
-        fontSize: 'base',
-      }),
+      [BUTTON_SIZE__SMALL]: {
+        vars: {
+          [internalFontSize]: themeContract.fontSize.xs,
+          [internalPadding]: `${themeContract.spacing[1.5]} ${themeContract.spacing[3]}`,
+        },
+      },
+      [BUTTON_SIZE__MEDIUM]: {
+        vars: {
+          [internalFontSize]: themeContract.fontSize.sm,
+          [internalPadding]: `${themeContract.spacing[2]} ${themeContract.spacing[4]}`,
+        },
+      },
+      [BUTTON_SIZE__LARGE]: {
+        vars: {
+          [internalFontSize]: themeContract.fontSize.base,
+          [internalPadding]: `${themeContract.spacing[3]} ${themeContract.spacing[6]}`,
+        },
+      },
     },
   },
   defaultVariants: {

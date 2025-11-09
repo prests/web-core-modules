@@ -40,8 +40,10 @@ const ColorSchemeWrapper = ({ colorScheme, parentSelector = DEFAULT_PARENT_SELEC
         return;
       }
 
+      parentElement.classList.remove(light, dark, system);
+
       parentElement.classList.add(colorSchemeClassName);
-    }, [colorScheme]);
+    }, [colorScheme, light, dark, system]);
 
     return storyFn();
   };

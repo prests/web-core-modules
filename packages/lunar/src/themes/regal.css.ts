@@ -8,6 +8,7 @@ import {
   COLORS__YELLOW,
   COLORS__RED,
   COLORS__BLUE,
+  COLORS__PURE,
 } from '../tokens/primitives/colors.js';
 import { SPACING } from '../tokens/primitives/spacing.js';
 import { FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT, LETTER_SPACING } from '../tokens/primitives/typography.js';
@@ -17,24 +18,31 @@ import { BOX_SHADOW } from '../tokens/primitives/shadows.js';
 const regalThemeVars = createTheme(themeContract, {
   colors: {
     // ACTION COLORS - Primary uses GOLD (brand), Secondary uses GOLD border, Destructive uses RED
-    'action.primary': `light-dark(oklch(${COLORS__GOLD[500]}), oklch(${COLORS__GOLD[50]}))`, // Gold background (same for both)
-    'action.primary.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 90%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 90%, transparent))`, // Same for both
-    'action.primary.active': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 80%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 80%, transparent))`, // Same for both
-    'action.primary.disabled': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 40%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 40%, transparent))`, // Same for both
+    'action.bg.primary': `light-dark(oklch(${COLORS__GOLD[300]}), oklch(${COLORS__GOLD[300]}))`, // Gold background (same for both)
+    'action.color.primary': `light-dark(oklch(${COLORS__PEARL[950]}), oklch(${COLORS__PEARL[950]}))`,
+    'action.bg.primary.hover': `light-dark(oklch(${COLORS__GOLD[300]} / 0.9), oklch(${COLORS__GOLD[300]} / 0.9))`,
+    'action.bg.primary.active': `light-dark(oklch(${COLORS__GOLD[300]} / 0.8), oklch(${COLORS__GOLD[300]} / 0.8))`,
+    'action.bg.primary.disabled': `light-dark(oklch(${COLORS__GOLD[300]} / 0.4), oklch(${COLORS__GOLD[300]} / 0.4))`,
 
-    'action.secondary': `light-dark(transparent, transparent)`, // Transparent background for both
-    'action.secondary.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[50]}) 10%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[900]}) 10%, transparent))`, // Light gold vs dark gold tint
-    'action.secondary.active': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[100]}) 20%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[800]}) 20%, transparent))`, // Different gold tints
-    'action.secondary.disabled': `light-dark(transparent, transparent)`, // Same for both
+    'action.bg.secondary': `light-dark(oklch(${COLORS__PEARL[400]}), oklch(${COLORS__PEARL[600]}))`, // Gold background (same for both)
+    'action.bg.secondary.hover': `light-dark(oklch(${COLORS__PEARL[400]} / 0.9), oklch(${COLORS__PEARL[600]} / 0.9))`, // Gold background (same for both)
+    'action.bg.secondary.active': `light-dark(oklch(${COLORS__PEARL[400]} / 0.8), oklch(${COLORS__PEARL[600]} / 0.8))`, // Gold background (same for both)
+    'action.bg.secondary.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.4), oklch(${COLORS__PEARL[600]} / 0.4))`,
 
-    'action.destructive': `light-dark(oklch(${COLORS__RED[500]}), oklch(${COLORS__RED[500]}))`, // Same red for both
-    'action.destructive.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__RED[500]}) 90%, transparent), color-mix(in oklch, oklch(${COLORS__RED[500]}) 90%, transparent))`, // Same for both
-    'action.destructive.active': `light-dark(color-mix(in oklch, oklch(${COLORS__RED[500]}) 80%, transparent), color-mix(in oklch, oklch(${COLORS__RED[500]}) 80%, transparent))`, // Same for both
-    'action.destructive.disabled': `light-dark(color-mix(in oklch, oklch(${COLORS__RED[500]}) 40%, transparent), color-mix(in oklch, oklch(${COLORS__RED[500]}) 40%, transparent))`, // Same for both
+    'action.bg.outline': `light-dark(oklch(${COLORS__PEARL[400]} / 0.0125), oklch(${COLORS__PEARL[700]} / 0.0125))`,
+    'action.bg.outline.hover': `light-dark(oklch(${COLORS__PEARL[400]} / 0.3), oklch(${COLORS__PEARL[700]} / 0.3))`,
+    'action.bg.outline.active': `light-dark(oklch(${COLORS__PEARL[400]} / 0.05), oklch(${COLORS__PEARL[700]} / 0.05))`,
+    'action.bg.outline.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.025), oklch(${COLORS__PEARL[700]}) / 0.025)`,
+    'action.color.outline.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.4), oklch(${COLORS__PEARL[700]}) / 0.4)`,
 
-    'action.ghost': `light-dark(transparent, transparent)`, // Transparent background for both
-    'action.ghost.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__PEARL[100]}) 50%, transparent), color-mix(in oklch, oklch(${COLORS__PEARL[800]}) 50%, transparent))`, // Light vs dark PEARL
-    'action.ghost.active': `light-dark(color-mix(in oklch, oklch(${COLORS__PEARL[200]}) 60%, transparent), color-mix(in oklch, oklch(${COLORS__PEARL[700]}) 60%, transparent))`, // Light vs dark PEARL
+    'action.destructive': `light-dark(oklch(${COLORS__RED[600]}), oklch(${COLORS__RED[400]}))`, // Same red for both
+    'action.destructive.hover': `light-dark(oklch(${COLORS__RED[600]} / 0.9), oklch(${COLORS__RED[300]} / 0.9))`, // Same red for both
+    'action.destructive.active': `light-dark(oklch(${COLORS__RED[600]} / 0.8), oklch(${COLORS__RED[300]} / 0.8))`, // Same red for both
+    'action.destructive.disabled': `light-dark(oklch(${COLORS__RED[600]} / 0.4), oklch(${COLORS__RED[300]} / 0.4))`, // Same red for both
+
+    'action.ghost': `light-dark(${COLORS__PURE.transparent}, ${COLORS__PURE.transparent})`, // Transparent background for both
+    'action.ghost.hover': `light-dark(oklch(${COLORS__GOLD[300]} / 0.5), oklch(${COLORS__GOLD[300]} / 0.5))`, // Transparent background for both
+    'action.ghost.active': `light-dark(oklch(${COLORS__GOLD[300]} / 0.6), oklch(${COLORS__GOLD[300]} 0.6))`, // Transparent background for both
     'action.ghost.disabled': `light-dark(transparent, transparent)`, // Transparent for both
 
     // BORDER COLORS - Interactive borders use GOLD
@@ -42,10 +50,10 @@ const regalThemeVars = createTheme(themeContract, {
     'border.subtle': `light-dark(oklch(${COLORS__PEARL[200]}), oklch(${COLORS__PEARL[800]}))`, // Light vs dark subtle border
     'border.strong': `light-dark(oklch(${COLORS__PEARL[400]}), oklch(${COLORS__PEARL[600]}))`, // Light vs dark strong border
 
-    'border.interactive': `light-dark(oklch(${COLORS__GOLD[500]}), oklch(${COLORS__GOLD[400]}))`, // Gold 500 vs lighter gold for dark theme
-    'border.interactive.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 90%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[400]}) 90%, transparent))`,
-    'border.interactive.active': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 80%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[400]}) 80%, transparent))`,
-    'border.focus': `light-dark(oklch(${COLORS__GOLD[500]}), oklch(${COLORS__GOLD[400]}))`, // Gold focus ring
+    'border.interactive': `light-dark(oklch(${COLORS__PEARL[900]} / 0.9), oklch(${COLORS__PEARL[400]}))`, // Gold 500 vs lighter gold for dark theme
+    'border.interactive.hover': `light-dark(oklch(${COLORS__PEARL[900]}), oklch(${COLORS__PEARL[400]} / 0.9))`, // Gold 500 vs lighter gold for dark theme
+    'border.interactive.active': `light-dark(oklch(${COLORS__PEARL[900]} / 0.8), oklch(${COLORS__PEARL[400]} / 0.8))`, // Gold 500 vs lighter gold for dark theme
+    'border.focus': `light-dark(oklch(${COLORS__PEARL[900]}), oklch(${COLORS__PEARL[400]}))`, // Gold focus ring
 
     'border.success': `light-dark(oklch(${COLORS__GREEN[500]}), oklch(${COLORS__GREEN[400]}))`, // Lighter for dark theme
     'border.warning': `light-dark(oklch(${COLORS__YELLOW[500]}), oklch(${COLORS__YELLOW[400]}))`,
@@ -55,29 +63,29 @@ const regalThemeVars = createTheme(themeContract, {
     'border.action.primary': `light-dark(oklch(${COLORS__GOLD[500]}), oklch(${COLORS__GOLD[400]}))`, // Matches primary action
     'border.action.secondary': `light-dark(oklch(${COLORS__GOLD[500]}), oklch(${COLORS__GOLD[400]}))`, // Gold border for secondary
     'border.action.destructive': `light-dark(oklch(${COLORS__RED[500]}), oklch(${COLORS__RED[400]}))`,
-    'border.action.disabled': `light-dark(oklch(${COLORS__PEARL[300]}), oklch(${COLORS__PEARL[700]}))`,
+    'border.action.disabled': `light-dark(oklch(${COLORS__GOLD[300]} / 0.4), oklch(${COLORS__GOLD[300]} / 0.4))`,
 
     // TEXT COLORS - Primary hierarchy uses PEARL, Interactive uses GOLD
     'text.primary': `light-dark(oklch(${COLORS__PEARL[900]}), oklch(${COLORS__PEARL[50]}))`, // High contrast dark vs light text
     'text.secondary': `light-dark(oklch(${COLORS__PEARL[700]}), oklch(${COLORS__PEARL[200]}))`, // Medium contrast text
     'text.tertiary': `light-dark(oklch(${COLORS__PEARL[600]}), oklch(${COLORS__PEARL[300]}))`, // Low contrast text
 
-    'text.interactive': `light-dark(oklch(${COLORS__GOLD[600]}), oklch(${COLORS__GOLD[400]}))`, // Gold for links - lighter for dark theme
-    'text.interactive.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[600]}) 90%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[400]}) 90%, transparent))`,
-    'text.interactive.active': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[600]}) 80%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[400]}) 80%, transparent))`,
+    'text.interactive': `light-dark(oklch(${COLORS__PEARL[900]} / 0.9), oklch(${COLORS__PEARL[300]}))`, // Gold for links - lighter for dark theme
+    'text.interactive.hover': `light-dark(oklch(${COLORS__PEARL[900]}), oklch(${COLORS__PEARL[300]} / 0.9))`, // Gold for links - lighter for dark theme
+    'text.interactive.active': `light-dark(oklch(${COLORS__PEARL[900]} / 0.8), oklch(${COLORS__PEARL[300]} / 0.9))`, // Gold for links - lighter for dark theme
 
     'text.success': `light-dark(oklch(${COLORS__GREEN[700]}), oklch(${COLORS__GREEN[300]}))`, // Darker vs lighter for contrast
     'text.warning': `light-dark(oklch(${COLORS__YELLOW[700]}), oklch(${COLORS__YELLOW[300]}))`,
     'text.error': `light-dark(oklch(${COLORS__RED[700]}), oklch(${COLORS__RED[300]}))`,
     'text.info': `light-dark(oklch(${COLORS__BLUE[700]}), oklch(${COLORS__BLUE[300]}))`,
 
-    'text.inverse': `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[900]}))`, // Light vs dark for inverse backgrounds
+    'text.inverse': `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[950]}))`, // Light vs dark for inverse backgrounds
     'text.disabled': `light-dark(oklch(${COLORS__PEARL[500]}), oklch(${COLORS__PEARL[500]}))`, // Same muted text for both
 
     // SURFACE COLORS - Layered hierarchy with PEARL
-    'surface.bg.primary': `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[950]}))`, // Main background - lightest vs darkest
-    'surface.bg.secondary': `light-dark(oklch(${COLORS__PEARL[100]}), oklch(${COLORS__PEARL[900]}))`, // Cards, panels
-    'surface.bg.tertiary': `light-dark(oklch(${COLORS__PEARL[200]}), oklch(${COLORS__PEARL[800]}))`, // Elevated surfaces
+    'surface.bg.primary': `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[900]}))`, // Main background - lightest vs darkest
+    'surface.bg.secondary': `light-dark(oklch(${COLORS__PEARL[100]}), oklch(${COLORS__PEARL[800]}))`, // Cards, panels
+    'surface.bg.tertiary': `light-dark(oklch(${COLORS__PEARL[200]}), oklch(${COLORS__PEARL[700]}))`, // Elevated surfaces
 
     'surface.bg.interactive': `light-dark(transparent, transparent)`, // Interactive surface base
     'surface.bg.interactive.hover': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[50]}) 30%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[800]}) 20%, transparent))`,
@@ -130,7 +138,8 @@ const regalThemeVars = createTheme(themeContract, {
     'shadow.default': `light-dark(color-mix(in oklch, oklch(${COLORS__PEARL[900]}) 15%, transparent), color-mix(in oklch, oklch(${COLORS__PEARL[950]}) 40%, transparent))`,
     'shadow.subtle': `light-dark(color-mix(in oklch, oklch(${COLORS__PEARL[900]}) 8%, transparent), color-mix(in oklch, oklch(${COLORS__PEARL[950]}) 20%, transparent))`,
     'shadow.strong': `light-dark(color-mix(in oklch, oklch(${COLORS__PEARL[900]}) 25%, transparent), color-mix(in oklch, oklch(${COLORS__PEARL[950]}) 60%, transparent))`,
-    'shadow.interactive': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 20%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[800]}) 30%, transparent))`,
+    'shadow.interactive': `light-dark(oklch(${COLORS__GOLD[600]} / 0.4), oklch(${COLORS__GOLD[200]} / 0.4))`, // Same red for both
+    'shadow.destructive': `light-dark(oklch(${COLORS__RED[600]} / 0.4), oklch(${COLORS__RED[400]} / 0.4))`, // Same red for both
     'shadow.focus': `light-dark(color-mix(in oklch, oklch(${COLORS__GOLD[500]}) 25%, transparent), color-mix(in oklch, oklch(${COLORS__GOLD[700]}) 40%, transparent))`,
     'shadow.success': `light-dark(color-mix(in oklch, oklch(${COLORS__GREEN[500]}) 20%, transparent), color-mix(in oklch, oklch(${COLORS__GREEN[800]}) 30%, transparent))`,
     'shadow.warning': `light-dark(color-mix(in oklch, oklch(${COLORS__YELLOW[500]}) 20%, transparent), color-mix(in oklch, oklch(${COLORS__YELLOW[800]}) 30%, transparent))`,

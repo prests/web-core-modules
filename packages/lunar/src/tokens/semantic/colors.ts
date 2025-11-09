@@ -1,15 +1,22 @@
 const ACTION_COLORS = {
   // Primary actions
-  'action.primary': null,
-  'action.primary.hover': null,
-  'action.primary.active': null,
-  'action.primary.disabled': null,
+  'action.bg.primary': null,
+  'action.color.primary': null,
+  'action.bg.primary.hover': null,
+  'action.bg.primary.active': null,
+  'action.bg.primary.disabled': null,
+  'action.color.outline.disabled': null,
 
   // Secondary actions
-  'action.secondary': null,
-  'action.secondary.hover': null,
-  'action.secondary.active': null,
-  'action.secondary.disabled': null,
+  'action.bg.secondary': null,
+  'action.bg.secondary.hover': null,
+  'action.bg.secondary.active': null,
+  'action.bg.secondary.disabled': null,
+
+  'action.bg.outline': null,
+  'action.bg.outline.hover': null,
+  'action.bg.outline.active': null,
+  'action.bg.outline.disabled': null,
 
   // Destructive actions
   'action.destructive': null,
@@ -146,6 +153,7 @@ const SHADOW_COLORS = {
   // Interactive shadows
   'shadow.interactive': null,
   'shadow.focus': null,
+  'shadow.destructive': null,
 
   // Semantic shadows
   'shadow.success': null,

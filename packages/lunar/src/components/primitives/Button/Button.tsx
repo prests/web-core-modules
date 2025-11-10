@@ -2,7 +2,7 @@ import { type ComponentProps, type FC } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 
-import { BUTTON_SIZE__MEDIUM, BUTTON_VARIANT__PRIMARY, buttonVariants } from './button.css.js';
+import { buttonVariants } from './button.css.js';
 import type { ButtonSize, ButtonVariant } from './button.types.js';
 
 interface ButtonProps extends ComponentProps<'button'> {
@@ -21,16 +21,12 @@ interface ButtonProps extends ComponentProps<'button'> {
   size?: ButtonSize;
 }
 
-const Button: FC<ButtonProps> = ({
-  className,
-  size = BUTTON_SIZE__MEDIUM,
-  variant = BUTTON_VARIANT__PRIMARY,
-  asChild = false,
-  ...props
-}) => {
+const Button: FC<ButtonProps> = ({ ref, className, size, variant, asChild = false, ...props }) => {
   const Comp = asChild ? Slot : 'button';
 
-  return <Comp data-slot="button" className={clsx(buttonVariants({ type: variant, size }), className)} {...props} />;
+  return (
+    <Comp ref={ref} data-slot="button" className={clsx(buttonVariants({ variant, size }), className)} {...props} />
+  );
 };
 
 export type { ButtonProps };

@@ -29,7 +29,7 @@ const buttonVariants = recipe({
       borderRadius: themeContract.borderRadius.md,
       fontSize: internalFontSize,
       padding: internalPadding,
-      fontWeight: themeContract.fontWeight.medium,
+      fontWeight: themeContract.typography.body.md.medium.fontWeight,
       gap: '0.5rem',
       whiteSpace: 'nowrap',
       flexShrink: 0,
@@ -44,7 +44,7 @@ const buttonVariants = recipe({
     },
   ],
   variants: {
-    type: {
+    variant: {
       [BUTTON_VARIANT__PRIMARY]: {
         backgroundColor: themeContract.colors['action.bg.primary'],
         color: themeContract.colors['action.color.primary'],
@@ -196,26 +196,26 @@ const buttonVariants = recipe({
     size: {
       [BUTTON_SIZE__SMALL]: {
         vars: {
-          [internalFontSize]: themeContract.fontSize.xs,
+          [internalFontSize]: themeContract.typography.body.sm.medium.fontSize,
           [internalPadding]: `${themeContract.spacing[1.5]} ${themeContract.spacing[3]}`,
         },
       },
       [BUTTON_SIZE__MEDIUM]: {
         vars: {
-          [internalFontSize]: themeContract.fontSize.sm,
+          [internalFontSize]: themeContract.typography.body.md.medium.fontSize,
           [internalPadding]: `${themeContract.spacing[2]} ${themeContract.spacing[4]}`,
         },
       },
       [BUTTON_SIZE__LARGE]: {
         vars: {
-          [internalFontSize]: themeContract.fontSize.base,
+          [internalFontSize]: themeContract.typography.body.lg.medium.fontSize,
           [internalPadding]: `${themeContract.spacing[3]} ${themeContract.spacing[6]}`,
         },
       },
     },
   },
   defaultVariants: {
-    type: BUTTON_VARIANT__PRIMARY,
+    variant: BUTTON_VARIANT__PRIMARY,
     size: BUTTON_SIZE__MEDIUM,
   },
 });

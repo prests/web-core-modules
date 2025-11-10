@@ -11,7 +11,6 @@ import {
   COLORS__PURE,
 } from '../tokens/primitives/colors.js';
 import { SPACING } from '../tokens/primitives/spacing.js';
-import { FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT, LETTER_SPACING } from '../tokens/primitives/typography.js';
 import { BORDER_RADIUS, BORDER_WIDTH } from '../tokens/primitives/borders.js';
 import { BOX_SHADOW } from '../tokens/primitives/shadows.js';
 
@@ -32,8 +31,8 @@ const regalThemeVars = createTheme(themeContract, {
     'action.bg.outline': `light-dark(oklch(${COLORS__PEARL[400]} / 0.0125), oklch(${COLORS__PEARL[700]} / 0.0125))`,
     'action.bg.outline.hover': `light-dark(oklch(${COLORS__PEARL[400]} / 0.3), oklch(${COLORS__PEARL[700]} / 0.3))`,
     'action.bg.outline.active': `light-dark(oklch(${COLORS__PEARL[400]} / 0.05), oklch(${COLORS__PEARL[700]} / 0.05))`,
-    'action.bg.outline.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.025), oklch(${COLORS__PEARL[700]}) / 0.025)`,
-    'action.color.outline.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.4), oklch(${COLORS__PEARL[700]}) / 0.4)`,
+    'action.bg.outline.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.025), oklch(${COLORS__PEARL[700]} / 0.025))`,
+    'action.color.outline.disabled': `light-dark(oklch(${COLORS__PEARL[400]} / 0.4), oklch(${COLORS__PEARL[700]} / 0.4))`,
 
     'action.destructive': `light-dark(oklch(${COLORS__RED[600]}), oklch(${COLORS__RED[400]}))`, // Same red for both
     'action.destructive.hover': `light-dark(oklch(${COLORS__RED[600]} / 0.9), oklch(${COLORS__RED[300]} / 0.9))`, // Same red for both
@@ -42,7 +41,7 @@ const regalThemeVars = createTheme(themeContract, {
 
     'action.ghost': `light-dark(${COLORS__PURE.transparent}, ${COLORS__PURE.transparent})`, // Transparent background for both
     'action.ghost.hover': `light-dark(oklch(${COLORS__GOLD[300]} / 0.5), oklch(${COLORS__GOLD[300]} / 0.5))`, // Transparent background for both
-    'action.ghost.active': `light-dark(oklch(${COLORS__GOLD[300]} / 0.6), oklch(${COLORS__GOLD[300]} 0.6))`, // Transparent background for both
+    'action.ghost.active': `light-dark(oklch(${COLORS__GOLD[300]} / 0.6), oklch(${COLORS__GOLD[300]} / 0.6))`, // Transparent background for both
     'action.ghost.disabled': `light-dark(transparent, transparent)`, // Transparent for both
 
     // BORDER COLORS - Interactive borders use GOLD
@@ -182,56 +181,6 @@ const regalThemeVars = createTheme(themeContract, {
     80: SPACING[80],
     96: SPACING[96],
   },
-  fontSize: {
-    xs: FONT_SIZE.xs,
-    sm: FONT_SIZE.sm,
-    base: FONT_SIZE.base,
-    lg: FONT_SIZE.lg,
-    xl: FONT_SIZE.xl,
-    '2xl': FONT_SIZE['2xl'],
-    '3xl': FONT_SIZE['3xl'],
-    '4xl': FONT_SIZE['4xl'],
-    '5xl': FONT_SIZE['5xl'],
-    '6xl': FONT_SIZE['6xl'],
-    '7xl': FONT_SIZE['7xl'],
-    '8xl': FONT_SIZE['8xl'],
-    '9xl': FONT_SIZE['9xl'],
-  },
-  fontWeight: {
-    thin: FONT_WEIGHT.thin,
-    extralight: FONT_WEIGHT.extralight,
-    light: FONT_WEIGHT.light,
-    normal: FONT_WEIGHT.normal,
-    medium: FONT_WEIGHT.medium,
-    semibold: FONT_WEIGHT.semibold,
-    bold: FONT_WEIGHT.bold,
-    extrabold: FONT_WEIGHT.extrabold,
-    black: FONT_WEIGHT.black,
-  },
-  lineHeight: {
-    none: LINE_HEIGHT.none,
-    tight: LINE_HEIGHT.tight,
-    snug: LINE_HEIGHT.snug,
-    normal: LINE_HEIGHT.normal,
-    relaxed: LINE_HEIGHT.relaxed,
-    loose: LINE_HEIGHT.loose,
-    3: LINE_HEIGHT[3],
-    4: LINE_HEIGHT[4],
-    5: LINE_HEIGHT[5],
-    6: LINE_HEIGHT[6],
-    7: LINE_HEIGHT[7],
-    8: LINE_HEIGHT[8],
-    9: LINE_HEIGHT[9],
-    10: LINE_HEIGHT[10],
-  },
-  letterSpacing: {
-    tighter: LETTER_SPACING.tighter,
-    tight: LETTER_SPACING.tight,
-    normal: LETTER_SPACING.normal,
-    wide: LETTER_SPACING.wide,
-    wider: LETTER_SPACING.wider,
-    widest: LETTER_SPACING.widest,
-  },
   borderRadius: {
     none: BORDER_RADIUS.none,
     sm: BORDER_RADIUS.sm,
@@ -259,6 +208,503 @@ const regalThemeVars = createTheme(themeContract, {
     xl: BOX_SHADOW.xl,
     '2xl': BOX_SHADOW['2xl'],
     inner: BOX_SHADOW.inner,
+  },
+  typography: {
+    fontFamily: {
+      base: 'Inter',
+    },
+    display: {
+      xl: {
+        light: {
+          fontWeight: '300',
+          fontSize: '4.5rem', // 72px
+          lineHeight: '1.1',
+          letterSpacing: '-0.02em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '4.5rem', // 72px
+          lineHeight: '1.1',
+          letterSpacing: '-0.02em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '4.5rem', // 72px
+          lineHeight: '1.1',
+          letterSpacing: '-0.02em',
+        },
+      },
+      lg: {
+        light: {
+          fontWeight: '300',
+          fontSize: '3.75rem', // 60px
+          lineHeight: '1.15',
+          letterSpacing: '-0.015em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '3.75rem', // 60px
+          lineHeight: '1.15',
+          letterSpacing: '-0.015em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '3.75rem', // 60px
+          lineHeight: '1.15',
+          letterSpacing: '-0.015em',
+        },
+      },
+      md: {
+        light: {
+          fontWeight: '300',
+          fontSize: '3rem', // 48px
+          lineHeight: '1.2',
+          letterSpacing: '-0.01em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '3rem', // 48px
+          lineHeight: '1.2',
+          letterSpacing: '-0.01em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '3rem', // 48px
+          lineHeight: '1.2',
+          letterSpacing: '-0.01em',
+        },
+      },
+      sm: {
+        light: {
+          fontWeight: '300',
+          fontSize: '2.25rem', // 36px
+          lineHeight: '1.25',
+          letterSpacing: '-0.005em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '2.25rem', // 36px
+          lineHeight: '1.25',
+          letterSpacing: '-0.005em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '2.25rem', // 36px
+          lineHeight: '1.25',
+          letterSpacing: '-0.005em',
+        },
+      },
+    },
+    heading: {
+      xl: {
+        light: {
+          fontWeight: '300',
+          fontSize: '2rem', // 32px
+          lineHeight: '1.3',
+          letterSpacing: '0em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '2rem', // 32px
+          lineHeight: '1.3',
+          letterSpacing: '0em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '2rem', // 32px
+          lineHeight: '1.3',
+          letterSpacing: '0em',
+        },
+      },
+      lg: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1.75rem', // 28px
+          lineHeight: '1.35',
+          letterSpacing: '0em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '1.75rem', // 28px
+          lineHeight: '1.35',
+          letterSpacing: '0em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '1.75rem', // 28px
+          lineHeight: '1.35',
+          letterSpacing: '0em',
+        },
+      },
+      md: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1.5rem', // 24px
+          lineHeight: '1.4',
+          letterSpacing: '0em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '1.5rem', // 24px
+          lineHeight: '1.4',
+          letterSpacing: '0em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '1.5rem', // 24px
+          lineHeight: '1.4',
+          letterSpacing: '0em',
+        },
+      },
+      sm: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1.25rem', // 20px
+          lineHeight: '1.45',
+          letterSpacing: '0em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '1.25rem', // 20px
+          lineHeight: '1.45',
+          letterSpacing: '0em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '1.25rem', // 20px
+          lineHeight: '1.45',
+          letterSpacing: '0em',
+        },
+      },
+    },
+    subheading: {
+      xl: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1.125rem', // 18px
+          lineHeight: '1.5',
+          letterSpacing: '0.005em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '1.125rem', // 18px
+          lineHeight: '1.5',
+          letterSpacing: '0.005em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '1.125rem', // 18px
+          lineHeight: '1.5',
+          letterSpacing: '0.005em',
+        },
+      },
+      lg: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1rem', // 16px
+          lineHeight: '1.5',
+          letterSpacing: '0.005em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '1rem', // 16px
+          lineHeight: '1.5',
+          letterSpacing: '0.005em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '1rem', // 16px
+          lineHeight: '1.5',
+          letterSpacing: '0.005em',
+        },
+      },
+      md: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.55',
+          letterSpacing: '0.01em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.55',
+          letterSpacing: '0.01em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.55',
+          letterSpacing: '0.01em',
+        },
+      },
+      sm: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.6',
+          letterSpacing: '0.015em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.6',
+          letterSpacing: '0.015em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.6',
+          letterSpacing: '0.015em',
+        },
+      },
+    },
+    body: {
+      xl: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1.125rem', // 18px
+          lineHeight: '1.6',
+          letterSpacing: '0.005em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '1.125rem', // 18px
+          lineHeight: '1.6',
+          letterSpacing: '0.005em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '1.125rem', // 18px
+          lineHeight: '1.6',
+          letterSpacing: '0.005em',
+        },
+      },
+      lg: {
+        light: {
+          fontWeight: '300',
+          fontSize: '1rem', // 16px
+          lineHeight: '1.6',
+          letterSpacing: '0.005em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '1rem', // 16px
+          lineHeight: '1.6',
+          letterSpacing: '0.005em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '1rem', // 16px
+          lineHeight: '1.6',
+          letterSpacing: '0.005em',
+        },
+      },
+      md: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.65',
+          letterSpacing: '0.01em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.65',
+          letterSpacing: '0.01em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.65',
+          letterSpacing: '0.01em',
+        },
+      },
+      sm: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.65',
+          letterSpacing: '0.015em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.65',
+          letterSpacing: '0.015em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.65',
+          letterSpacing: '0.015em',
+        },
+      },
+    },
+    caption: {
+      xl: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.5',
+          letterSpacing: '0.015em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.5',
+          letterSpacing: '0.015em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.5',
+          letterSpacing: '0.015em',
+        },
+      },
+      lg: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.5',
+          letterSpacing: '0.02em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.5',
+          letterSpacing: '0.02em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.5',
+          letterSpacing: '0.02em',
+        },
+      },
+      md: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.6875rem', // 11px
+          lineHeight: '1.45',
+          letterSpacing: '0.025em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '0.6875rem', // 11px
+          lineHeight: '1.45',
+          letterSpacing: '0.025em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '0.6875rem', // 11px
+          lineHeight: '1.45',
+          letterSpacing: '0.025em',
+        },
+      },
+      sm: {
+        light: {
+          fontWeight: '300',
+          fontSize: '0.625rem', // 10px
+          lineHeight: '1.4',
+          letterSpacing: '0.03em',
+        },
+        medium: {
+          fontWeight: '400',
+          fontSize: '0.625rem', // 10px
+          lineHeight: '1.4',
+          letterSpacing: '0.03em',
+        },
+        bold: {
+          fontWeight: '600',
+          fontSize: '0.625rem', // 10px
+          lineHeight: '1.4',
+          letterSpacing: '0.03em',
+        },
+      },
+    },
+    label: {
+      xl: {
+        light: {
+          fontWeight: '400',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.4',
+          letterSpacing: '0.02em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.4',
+          letterSpacing: '0.02em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '0.875rem', // 14px
+          lineHeight: '1.4',
+          letterSpacing: '0.02em',
+        },
+      },
+      lg: {
+        light: {
+          fontWeight: '400',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.4',
+          letterSpacing: '0.025em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.4',
+          letterSpacing: '0.025em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '0.75rem', // 12px
+          lineHeight: '1.4',
+          letterSpacing: '0.025em',
+        },
+      },
+      md: {
+        light: {
+          fontWeight: '400',
+          fontSize: '0.6875rem', // 11px
+          lineHeight: '1.35',
+          letterSpacing: '0.03em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '0.6875rem', // 11px
+          lineHeight: '1.35',
+          letterSpacing: '0.03em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '0.6875rem', // 11px
+          lineHeight: '1.35',
+          letterSpacing: '0.03em',
+        },
+      },
+      sm: {
+        light: {
+          fontWeight: '400',
+          fontSize: '0.625rem', // 10px
+          lineHeight: '1.3',
+          letterSpacing: '0.035em',
+        },
+        medium: {
+          fontWeight: '500',
+          fontSize: '0.625rem', // 10px
+          lineHeight: '1.3',
+          letterSpacing: '0.035em',
+        },
+        bold: {
+          fontWeight: '700',
+          fontSize: '0.625rem', // 10px
+          lineHeight: '1.3',
+          letterSpacing: '0.035em',
+        },
+      },
+    },
   },
 });
 

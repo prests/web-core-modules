@@ -73,5 +73,6 @@ export const withCustomOutline = (outlineColor: string): StyleRule => ({
     boxShadow: `0px 0px 0px 0px, ${COLORS__PURE.transparent} 0px 0px 0px 0px, ${COLORS__PURE.transparent} 0px 0px 0px 0px, ${outlineColor} 0px 0px 0px 3px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px`,
     outline: '2px solid transparent',
     outlineOffset: '2px',
+    transition: 'box-shadow 0s',
   },
 });

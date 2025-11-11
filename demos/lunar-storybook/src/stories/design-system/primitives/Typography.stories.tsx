@@ -5,7 +5,8 @@ import {
   FONT_SIZE,
   FONT_WEIGHT,
   LETTER_SPACING,
-  LINE_HEIGHT,
+  LINE_HEIGHT__TIGHT,
+  LINE_HEIGHT__RELAXED,
 } from '@wcm/lunar/src/tokens/primitives/typography.js';
 
 const meta = {
@@ -31,7 +32,7 @@ export const FontFamilies: Story = {
       {/* Overview of all families */}
       <div style={{ display: 'grid', gap: '32px', marginBottom: '48px' }}>
         {Object.entries(FONT_FAMILY).map(([name, fonts]) => {
-          const fontArray = fonts as readonly string[];
+          const fontArray = Object.values(fonts).filter(value => typeof value === 'string');
           return (
             <div key={name} style={{ padding: '24px', border: '1px solid #e5e5e5', borderRadius: '8px' }}>
               <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: '600' }}>
@@ -65,7 +66,13 @@ export const FontFamilies: Story = {
           <p style={{ marginBottom: '16px', fontSize: '14px', color: '#666' }}>
             Perfect for headings, body text, and user interfaces
           </p>
-          <div style={{ fontFamily: (FONT_FAMILY.sans as readonly string[]).join(', ') }}>
+          <div
+            style={{
+              fontFamily: Object.values(FONT_FAMILY.sans)
+                .filter(value => typeof value === 'string')
+                .join(', '),
+            }}
+          >
             <div style={{ fontSize: '48px', marginBottom: '16px', fontWeight: '700' }}>Modern Design</div>
             <div style={{ fontSize: '24px', marginBottom: '16px', fontWeight: '500' }}>
               Clean and readable typography
@@ -83,7 +90,13 @@ export const FontFamilies: Story = {
           <p style={{ marginBottom: '16px', fontSize: '14px', color: '#666' }}>
             Ideal for long-form reading and traditional designs
           </p>
-          <div style={{ fontFamily: (FONT_FAMILY.serif as readonly string[]).join(', ') }}>
+          <div
+            style={{
+              fontFamily: Object.values(FONT_FAMILY.serif)
+                .filter(value => typeof value === 'string')
+                .join(', '),
+            }}
+          >
             <div style={{ fontSize: '48px', marginBottom: '16px', fontWeight: '700' }}>Classic Elegance</div>
             <div style={{ fontSize: '24px', marginBottom: '16px', fontWeight: '500' }}>Timeless and sophisticated</div>
             <div style={{ fontSize: '16px', lineHeight: '1.6', color: '#666' }}>
@@ -99,7 +112,13 @@ export const FontFamilies: Story = {
           <p style={{ marginBottom: '16px', fontSize: '14px', color: '#666' }}>
             Perfect for code, data, and technical content
           </p>
-          <div style={{ fontFamily: (FONT_FAMILY.mono as readonly string[]).join(', ') }}>
+          <div
+            style={{
+              fontFamily: Object.values(FONT_FAMILY.mono)
+                .filter(value => typeof value === 'string')
+                .join(', '),
+            }}
+          >
             <div style={{ fontSize: '48px', marginBottom: '16px', fontWeight: '700' }}>Code & Data</div>
             <div style={{ fontSize: '24px', marginBottom: '16px', fontWeight: '500' }}>Fixed-width precision</div>
             <div style={{ fontSize: '16px', lineHeight: '1.6', color: '#666' }}>
@@ -437,14 +456,36 @@ export const LineHeights: Story = {
       <h1 style={{ marginBottom: '32px', fontSize: '32px', fontWeight: '700' }}>Line Heights</h1>
 
       <p style={{ marginBottom: '32px', fontSize: '16px', color: '#666', maxWidth: '800px' }}>
-        Line height controls the vertical space between lines of text. These values range from tight spacing for
-        headlines to loose spacing for improved readability in body text.
+        Line height controls the vertical space between lines of text. We provide both tight spacing for headlines and
+        relaxed spacing for improved readability in body text.
       </p>
 
-      <div style={{ display: 'grid', gap: '16px' }}>
-        {Object.entries(LINE_HEIGHT).map(([name, lineHeight]) => (
-          <LineHeightSample key={name} name={name} lineHeight={lineHeight} />
-        ))}
+      <div style={{ display: 'grid', gap: '32px' }}>
+        {/* Tight Line Heights */}
+        <div>
+          <h2 style={{ marginBottom: '24px', fontSize: '24px', fontWeight: '600' }}>Tight Line Heights</h2>
+          <p style={{ marginBottom: '16px', fontSize: '14px', color: '#666' }}>
+            Perfect for headlines and display text where space is at a premium.
+          </p>
+          <div style={{ display: 'grid', gap: '16px' }}>
+            {Object.entries(LINE_HEIGHT__TIGHT).map(([name, lineHeight]) => (
+              <LineHeightSample key={`tight-${name}`} name={`${name} (tight)`} lineHeight={lineHeight} />
+            ))}
+          </div>
+        </div>
+
+        {/* Relaxed Line Heights */}
+        <div>
+          <h2 style={{ marginBottom: '24px', fontSize: '24px', fontWeight: '600' }}>Relaxed Line Heights</h2>
+          <p style={{ marginBottom: '16px', fontSize: '14px', color: '#666' }}>
+            Ideal for body text and content that needs enhanced readability.
+          </p>
+          <div style={{ display: 'grid', gap: '16px' }}>
+            {Object.entries(LINE_HEIGHT__RELAXED).map(([name, lineHeight]) => (
+              <LineHeightSample key={`relaxed-${name}`} name={`${name} (relaxed)`} lineHeight={lineHeight} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   ),

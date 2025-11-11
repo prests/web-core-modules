@@ -3,7 +3,8 @@ import {
   FONT_FAMILY,
   FONT_SIZE,
   FONT_WEIGHT,
-  LINE_HEIGHT,
+  LINE_HEIGHT__TIGHT,
+  LINE_HEIGHT__RELAXED,
   LETTER_SPACING,
 } from '@wcm/lunar/src/tokens/primitives/typography.js';
 
@@ -34,13 +35,34 @@ export const Overview: Story = {
             System-optimized font stacks for sans-serif, serif, and monospace typography.
           </p>
           <div style={{ display: 'grid', gap: '12px' }}>
-            <div style={{ fontFamily: (FONT_FAMILY.sans as readonly string[]).join(', '), fontSize: '16px' }}>
+            <div
+              style={{
+                fontFamily: Object.values(FONT_FAMILY.sans)
+                  .filter(value => typeof value === 'string')
+                  .join(', '),
+                fontSize: '16px',
+              }}
+            >
               Sans-serif for UI and body text
             </div>
-            <div style={{ fontFamily: (FONT_FAMILY.serif as readonly string[]).join(', '), fontSize: '16px' }}>
+            <div
+              style={{
+                fontFamily: Object.values(FONT_FAMILY.serif)
+                  .filter(value => typeof value === 'string')
+                  .join(', '),
+                fontSize: '16px',
+              }}
+            >
               Serif for traditional and long-form content
             </div>
-            <div style={{ fontFamily: (FONT_FAMILY.mono as readonly string[]).join(', '), fontSize: '16px' }}>
+            <div
+              style={{
+                fontFamily: Object.values(FONT_FAMILY.mono)
+                  .filter(value => typeof value === 'string')
+                  .join(', '),
+                fontSize: '16px',
+              }}
+            >
               Monospace for code and data
             </div>
           </div>
@@ -87,12 +109,19 @@ export const Overview: Story = {
 
 export const TypographyShowcase: Story = {
   render: () => (
-    <div style={{ padding: '32px', fontFamily: (FONT_FAMILY.sans as readonly string[]).join(', ') }}>
+    <div
+      style={{
+        padding: '32px',
+        fontFamily: Object.values(FONT_FAMILY.sans)
+          .filter(value => typeof value === 'string')
+          .join(', '),
+      }}
+    >
       <h1
         style={{
           fontSize: FONT_SIZE['6xl'],
           fontWeight: FONT_WEIGHT.bold,
-          lineHeight: LINE_HEIGHT.tight,
+          lineHeight: LINE_HEIGHT__TIGHT['6xl'],
           marginBottom: '16px',
         }}
       >
@@ -103,7 +132,7 @@ export const TypographyShowcase: Story = {
         style={{
           fontSize: FONT_SIZE['4xl'],
           fontWeight: FONT_WEIGHT.semibold,
-          lineHeight: LINE_HEIGHT.snug,
+          lineHeight: LINE_HEIGHT__TIGHT['4xl'],
           marginBottom: '12px',
         }}
       >
@@ -114,7 +143,7 @@ export const TypographyShowcase: Story = {
         style={{
           fontSize: FONT_SIZE['2xl'],
           fontWeight: FONT_WEIGHT.medium,
-          lineHeight: LINE_HEIGHT.normal,
+          lineHeight: LINE_HEIGHT__TIGHT['2xl'],
           marginBottom: '8px',
         }}
       >
@@ -125,7 +154,7 @@ export const TypographyShowcase: Story = {
         style={{
           fontSize: FONT_SIZE.base,
           fontWeight: FONT_WEIGHT.normal,
-          lineHeight: LINE_HEIGHT.relaxed,
+          lineHeight: LINE_HEIGHT__RELAXED.base,
           letterSpacing: LETTER_SPACING.normal,
           marginBottom: '16px',
           maxWidth: '600px',
@@ -140,7 +169,7 @@ export const TypographyShowcase: Story = {
         style={{
           fontSize: FONT_SIZE.sm,
           fontWeight: FONT_WEIGHT.light,
-          lineHeight: LINE_HEIGHT.normal,
+          lineHeight: LINE_HEIGHT__RELAXED.sm,
           letterSpacing: LETTER_SPACING.wide,
           color: '#666',
           marginBottom: '16px',
@@ -151,7 +180,9 @@ export const TypographyShowcase: Story = {
 
       <code
         style={{
-          fontFamily: (FONT_FAMILY.mono as readonly string[]).join(', '),
+          fontFamily: Object.values(FONT_FAMILY.mono)
+            .filter(value => typeof value === 'string')
+            .join(', '),
           fontSize: FONT_SIZE.sm,
           backgroundColor: '#f5f5f5',
           padding: '2px 4px',

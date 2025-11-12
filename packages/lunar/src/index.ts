@@ -11,6 +11,35 @@ export {
   BUTTON_SIZE__SMALL,
 } from './components/primitives/Button/button.css.js';
 
+export { default as Text, type TextProps } from './components/primitives/Typography/Text.js';
+export {
+  TEXT_VARIANT__DISPLAY,
+  TEXT_VARIANT__HEADING,
+  TEXT_VARIANT__SUBHEADING,
+  TEXT_VARIANT__BODY,
+  TEXT_VARIANT__CAPTION,
+  TEXT_VARIANT__LABEL,
+  TEXT_SIZE__XL,
+  TEXT_SIZE__LG,
+  TEXT_SIZE__MD,
+  TEXT_SIZE__SM,
+  TEXT_COLOR__PRIMARY,
+  TEXT_COLOR__SECONDARY,
+  TEXT_COLOR__MUTED,
+  TEXT_COLOR__DISABLED,
+  TEXT_COLOR__INVERSE,
+  TEXT_COLOR__INTERACTIVE,
+  TEXT_COLOR__SUCCESS,
+  TEXT_COLOR__WARNING,
+  TEXT_COLOR__DANGER,
+  TEXT_COLOR__INFO,
+  TEXT_COLOR__BRAND,
+  TEXT_COLOR__ACCENT,
+  TEXT_WEIGHT__LIGHT,
+  TEXT_WEIGHT__MEDIUM,
+  TEXT_WEIGHT__BOLD,
+} from './components/primitives/Typography/text.css.js';
+
 export { regalTheme } from './themes/regal.css.js';
 export { themeContract } from './tokens/tokens.css.js';
 

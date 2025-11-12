@@ -57,7 +57,7 @@ export const withSafeTransition = (styles: CSSProperties): StyleRule => ({
  *
  * const buttonVariants = recipe({
  *   base: [
- *     withCustomOutline(themeContract.colors['shadow.interactive']),
+ *     withCustomOutline(themeContract.colors.shadow.interactive),
  *     {
  *       // other base styles
  *       padding: '12px 24px'

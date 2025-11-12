@@ -12,9 +12,9 @@ const preview: Preview = {
   parameters: {
     backgrounds: {
       options: {
-        system: { name: 'System Settings (default)', value: themeContract.colors['surface.bg.primary'] },
-        dark: { name: 'Dark', value: themeContract.colors['surface.bg.primary'] },
-        light: { name: 'Light', value: themeContract.colors['surface.bg.primary'] },
+        system: { name: 'System Settings (default)', value: themeContract.colors.surface.bg.primary },
+        dark: { name: 'Dark', value: themeContract.colors.surface.bg.primary },
+        light: { name: 'Light', value: themeContract.colors.surface.bg.primary },
       },
     },
     controls: {

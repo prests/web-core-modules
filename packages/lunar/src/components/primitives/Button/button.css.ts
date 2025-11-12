@@ -20,7 +20,7 @@ const internalPadding = createVar();
 
 const buttonVariants = recipe({
   base: [
-    withCustomOutline(themeContract.colors['shadow.interactive']),
+    withCustomOutline(themeContract.colors.shadow.interactive),
     withSafeTransition({ transition: 'all 0.2s ease-in-out' }),
     {
       display: 'inline-flex',
@@ -29,7 +29,7 @@ const buttonVariants = recipe({
       borderRadius: themeContract.borderRadius.md,
       fontSize: internalFontSize,
       padding: internalPadding,
-      fontWeight: themeContract.fontWeight.medium,
+      fontWeight: themeContract.typography.body.md.medium.fontWeight,
       gap: '0.5rem',
       whiteSpace: 'nowrap',
       flexShrink: 0,
@@ -44,90 +44,90 @@ const buttonVariants = recipe({
     },
   ],
   variants: {
-    type: {
+    variant: {
       [BUTTON_VARIANT__PRIMARY]: {
-        backgroundColor: themeContract.colors['action.bg.primary'],
-        color: themeContract.colors['action.color.primary'],
+        backgroundColor: themeContract.colors.action.bg.primary.default,
+        color: themeContract.colors.action.color.primary,
         selectors: {
           '&:hover:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.bg.primary.hover'],
+            backgroundColor: themeContract.colors.action.bg.primary.hover,
           },
           '&:hover:not(:focus-visible)': {
-            boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
+            boxShadow: `0 1px 3px ${themeContract.colors.shadow.subtle}`,
           },
           '&:active:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.bg.primary.active'],
+            backgroundColor: themeContract.colors.action.bg.primary.active,
             transform: 'translateY(1px)',
           },
         },
         ':disabled': {
-          backgroundColor: themeContract.colors['action.bg.primary.disabled'],
-          color: themeContract.colors['text.disabled'],
+          backgroundColor: themeContract.colors.action.bg.primary.disabled,
+          color: themeContract.colors.text.disabled,
         },
       },
       [BUTTON_VARIANT__SECONDARY]: {
-        backgroundColor: themeContract.colors['action.bg.secondary'],
-        borderColor: themeContract.colors['border.action.secondary'],
-        color: themeContract.colors['text.primary'],
+        backgroundColor: themeContract.colors.action.bg.secondary.default,
+        borderColor: themeContract.colors.border.action.secondary,
+        color: themeContract.colors.text.primary,
         selectors: {
           '&:hover:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.bg.secondary.hover'],
-            boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
+            backgroundColor: themeContract.colors.action.bg.secondary.hover,
+            boxShadow: `0 1px 3px ${themeContract.colors.shadow.subtle}`,
           },
           '&:active:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.bg.secondary.active'],
+            backgroundColor: themeContract.colors.action.bg.secondary.active,
             transform: 'translateY(1px)',
           },
         },
         ':disabled': {
-          backgroundColor: themeContract.colors['action.bg.secondary.disabled'],
-          color: themeContract.colors['text.disabled'],
+          backgroundColor: themeContract.colors.action.bg.secondary.disabled,
+          color: themeContract.colors.text.disabled,
         },
       },
       [BUTTON_VARIANT__OUTLINE]: {
-        backgroundColor: themeContract.colors['action.bg.outline'],
+        backgroundColor: themeContract.colors.action.bg.outline.default,
         border: themeContract.borderWidth[1],
         borderStyle: 'solid',
-        borderColor: themeContract.colors['border.interactive'],
-        color: themeContract.colors['text.interactive'],
+        borderColor: themeContract.colors.border.interactive.default,
+        color: themeContract.colors.text.interactive.default,
         selectors: {
           '&:hover:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.bg.outline.hover'],
-            borderColor: themeContract.colors['border.interactive.hover'],
-            color: themeContract.colors['text.interactive.hover'],
-            boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
+            backgroundColor: themeContract.colors.action.bg.outline.hover,
+            borderColor: themeContract.colors.border.interactive.hover,
+            color: themeContract.colors.text.interactive.hover,
+            boxShadow: `0 1px 3px ${themeContract.colors.shadow.subtle}`,
           },
           '&:active:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.bg.outline.active'],
-            borderColor: themeContract.colors['border.interactive.active'],
-            color: themeContract.colors['text.interactive.active'],
+            backgroundColor: themeContract.colors.action.bg.outline.active,
+            borderColor: themeContract.colors.border.interactive.active,
+            color: themeContract.colors.text.interactive.active,
             transform: 'translateY(1px)',
           },
         },
         ':disabled': {
-          backgroundColor: themeContract.colors['action.bg.outline.disabled'],
-          borderColor: themeContract.colors['border.action.disabled'],
-          color: themeContract.colors['action.color.outline.disabled'],
+          backgroundColor: themeContract.colors.action.bg.outline.disabled,
+          borderColor: themeContract.colors.border.action.disabled,
+          color: themeContract.colors.action.color.outline.disabled,
         },
       },
       [BUTTON_VARIANT__GHOST]: {
-        backgroundColor: themeContract.colors['action.ghost'],
-        borderColor: themeContract.colors['action.ghost'],
-        color: themeContract.colors['text.interactive'],
+        backgroundColor: themeContract.colors.action.ghost.default,
+        borderColor: themeContract.colors.action.ghost.default,
+        color: themeContract.colors.text.interactive.default,
         selectors: {
           '&:hover:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.ghost.hover'],
-            color: themeContract.colors['text.interactive.hover'],
+            backgroundColor: themeContract.colors.action.ghost.hover,
+            color: themeContract.colors.text.interactive.hover,
           },
           '&:active:not(:disabled)': {
-            backgroundColor: themeContract.colors['action.ghost.active'],
-            color: themeContract.colors['text.interactive.active'],
+            backgroundColor: themeContract.colors.action.ghost.active,
+            color: themeContract.colors.text.interactive.active,
             transform: 'translateY(1px)',
           },
         },
         ':disabled': {
-          backgroundColor: themeContract.colors['action.ghost.disabled'],
-          color: themeContract.colors['text.disabled'],
+          backgroundColor: themeContract.colors.action.ghost.disabled,
+          color: themeContract.colors.text.disabled,
         },
       },
       [BUTTON_VARIANT__LINK]: [
@@ -136,8 +136,8 @@ const buttonVariants = recipe({
         }),
         {
           alignSelf: 'center',
-          color: themeContract.colors['text.interactive'],
-          background: `none, linear-gradient(to right, ${themeContract.colors['text.interactive.hover']}, ${themeContract.colors['text.interactive.hover']})`,
+          color: themeContract.colors.text.interactive.default,
+          background: `none, linear-gradient(to right, ${themeContract.colors.text.interactive.hover}, ${themeContract.colors.text.interactive.hover})`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '100% 100%, 0 100%',
           backgroundSize: `100% calc(${internalFontSize} / 4), 0 calc(${internalFontSize} / 4)`,
@@ -149,19 +149,19 @@ const buttonVariants = recipe({
           selectors: {
             '&:hover:not(:disabled)': {
               backgroundSize: `0 calc(${internalFontSize} / 4), 100% calc(${internalFontSize} / 4)`,
-              color: themeContract.colors['text.interactive.hover'],
+              color: themeContract.colors.text.interactive.hover,
             },
             '&:focus:not(:disabled)': {
               backgroundSize: `0 calc(${internalFontSize} / 4), 100% calc(${internalFontSize} / 4)`,
-              color: themeContract.colors['text.interactive.hover'],
+              color: themeContract.colors.text.interactive.hover,
             },
             '&:active:not(:disabled)': {
               backgroundSize: `0 calc(${internalFontSize} / 4), 100% calc(${internalFontSize} / 4)`,
-              color: themeContract.colors['text.interactive.active'],
+              color: themeContract.colors.text.interactive.active,
             },
           },
           ':disabled': {
-            color: themeContract.colors['text.disabled'],
+            color: themeContract.colors.text.disabled,
             textDecoration: 'none',
           },
           ':focus-visible': {
@@ -170,25 +170,25 @@ const buttonVariants = recipe({
         },
       ],
       [BUTTON_VARIANT__DESTRUCTIVE]: [
-        withCustomOutline(themeContract.colors['shadow.destructive']),
+        withCustomOutline(themeContract.colors.shadow.destructive),
         {
-          backgroundColor: themeContract.colors['action.destructive'],
-          borderColor: themeContract.colors['border.action.destructive'],
-          color: themeContract.colors['text.inverse'],
+          backgroundColor: themeContract.colors.action.destructive.default,
+          borderColor: themeContract.colors.border.action.destructive,
+          color: themeContract.colors.text.inverse,
           selectors: {
             '&:hover:not(:disabled)': {
-              backgroundColor: themeContract.colors['action.destructive.hover'],
-              boxShadow: `0 1px 3px ${themeContract.colors['shadow.subtle']}`,
+              backgroundColor: themeContract.colors.action.destructive.hover,
+              boxShadow: `0 1px 3px ${themeContract.colors.shadow.subtle}`,
             },
             '&:active:not(:disabled)': {
-              backgroundColor: themeContract.colors['action.destructive.active'],
+              backgroundColor: themeContract.colors.action.destructive.active,
               transform: 'translateY(1px)',
             },
           },
           ':disabled': {
-            backgroundColor: themeContract.colors['action.destructive.disabled'],
-            borderColor: themeContract.colors['border.action.disabled'],
-            color: themeContract.colors['text.disabled'],
+            backgroundColor: themeContract.colors.action.destructive.disabled,
+            borderColor: themeContract.colors.border.action.disabled,
+            color: themeContract.colors.text.disabled,
           },
         },
       ],
@@ -196,26 +196,26 @@ const buttonVariants = recipe({
     size: {
       [BUTTON_SIZE__SMALL]: {
         vars: {
-          [internalFontSize]: themeContract.fontSize.xs,
+          [internalFontSize]: themeContract.typography.body.sm.medium.fontSize,
           [internalPadding]: `${themeContract.spacing[1.5]} ${themeContract.spacing[3]}`,
         },
       },
       [BUTTON_SIZE__MEDIUM]: {
         vars: {
-          [internalFontSize]: themeContract.fontSize.sm,
+          [internalFontSize]: themeContract.typography.body.md.medium.fontSize,
           [internalPadding]: `${themeContract.spacing[2]} ${themeContract.spacing[4]}`,
         },
       },
       [BUTTON_SIZE__LARGE]: {
         vars: {
-          [internalFontSize]: themeContract.fontSize.base,
+          [internalFontSize]: themeContract.typography.body.lg.medium.fontSize,
           [internalPadding]: `${themeContract.spacing[3]} ${themeContract.spacing[6]}`,
         },
       },
     },
   },
   defaultVariants: {
-    type: BUTTON_VARIANT__PRIMARY,
+    variant: BUTTON_VARIANT__PRIMARY,
     size: BUTTON_SIZE__MEDIUM,
   },
 });

@@ -9,11 +9,11 @@ export const card = style({
   display: 'flex',
   flexDirection: 'column',
   gap: themeContract.spacing[6],
-  borderRadius: themeContract.borderRadius.xl,
+  borderRadius: themeContract.borderRadius['2xl'],
   border: `${themeContract.borderWidth[1]} solid ${themeContract.colors.border.default}`,
   paddingTop: themeContract.spacing[6],
   paddingBottom: themeContract.spacing[6],
-  boxShadow: themeContract.boxShadow.sm,
+  boxShadow: themeContract.boxShadow.lg,
 });
 
 // Card Header styles with complex grid layout

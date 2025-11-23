@@ -51,7 +51,7 @@ export const WithFooter: Story = {
         <Text as="p">Card content with a footer below.</Text>
       </CardContent>
       <CardFooter>
-        <Text as="small" style={{ fontSize: '0.875rem', color: 'gray' }}>
+        <Text as="small" variant="caption">
           Footer information
         </Text>
       </CardFooter>
@@ -152,18 +152,9 @@ export const MultipleCards: Story = {
 
 const meta = {
   title: 'Components/Composite/Card',
-  component: Card,
   parameters: {
-    layout: 'padded',
-  },
-  tags: ['autodocs'],
-  argTypes: {
-    children: {
-      description: 'The content to display inside the card. Use CardHeader, CardContent, and CardFooter components.',
-      control: false,
-    },
+    layout: 'centered',
   },
 } satisfies Meta<typeof Card>;
 
 export default meta;
-

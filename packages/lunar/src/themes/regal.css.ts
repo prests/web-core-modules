@@ -104,7 +104,7 @@ const regalThemeVars = createTheme(themeContract, {
     surface: {
       bg: {
         primary: `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[900]}))`, // Main background - lightest vs darkest
-        secondary: `light-dark(oklch(${COLORS__PEARL[100]}), oklch(${COLORS__PEARL[800]}))`, // Cards, panels
+        secondary: `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[800]}))`, // Cards, panels
         tertiary: `light-dark(oklch(${COLORS__PEARL[200]}), oklch(${COLORS__PEARL[700]}))`, // Elevated surfaces
         interactive: {
           default: `light-dark(transparent, transparent)`, // Interactive surface base

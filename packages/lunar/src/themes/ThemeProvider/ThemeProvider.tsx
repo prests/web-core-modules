@@ -34,5 +34,6 @@ const ThemeProvider = ({ children, themeClassName, colorScheme = COLOR_SCHEME__S
   return <ThemeContext value={{}}>{children(clsx(themeClassName, colorSchemeOverrideClassName))}</ThemeContext>;
 };
 
+export type { ThemeContextProps };
 export default ThemeProvider;
 export { ThemeContext };

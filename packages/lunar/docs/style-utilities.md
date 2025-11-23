@@ -1,8 +1,8 @@
 # Style Utilities
 
-The Lunar design system provides utility functions for common styling patterns, including motion-safe transitions and
-custom focus outlines. These utilities return style objects that must be used with vanilla-extract's `style()` function
-for zero-runtime performance.
+The Lunar design system provides utility functions for common styling patterns, including motion-safe transitions,
+custom focus outlines, and more! These utilities return style objects that must be used with vanilla-extract's `style()`
+function for zero-runtime performance.
 
 ## Overview
 
@@ -65,7 +65,7 @@ Creates a custom focus outline style object that follows the design system's out
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { withCustomOutline } from '@wcm/lunar';
+import { themeContract, withCustomOutline } from '@wcm/lunar';
 
 // Simple usage with hex color
 const redOutlineButton = style([
@@ -79,7 +79,7 @@ const redOutlineButton = style([
 
 // Usage with theme variables
 const primaryButton = style([
-  withCustomOutline(themeContract.colors['border.interactive']),
+  withCustomOutline(themeContract.colors.border.interactive),
   {
     padding: '12px 24px',
     backgroundColor: themeContract.colors.background.primary,
@@ -90,7 +90,7 @@ const primaryButton = style([
 // Usage in recipes
 const buttonVariants = recipe({
   base: [
-    withCustomOutline(themeContract.colors['shadow.interactive']),
+    withCustomOutline(themeContract.colors.shadow.interactive),
     {
       padding: '12px 24px',
       borderRadius: '6px',

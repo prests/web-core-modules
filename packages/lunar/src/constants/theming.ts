@@ -1,0 +1,5 @@
+const COLOR_SCHEME__SYSTEM = 'system';
+const COLOR_SCHEME__LIGHT = 'light';
+const COLOR_SCHEME__DARK = 'dark';
+
+export { COLOR_SCHEME__LIGHT, COLOR_SCHEME__SYSTEM, COLOR_SCHEME__DARK };

@@ -35,7 +35,7 @@ const baseReactESLintConfig = [
   {
     files: ['**/*.stories.{ts,tsx,js,jsx}'],
     rules: {
-      'unicorn/filename-case': [ERROR, { case: 'pascalCase' }],
+      'unicorn/filename-case': OFF,
     },
   },
 
@@ -43,7 +43,7 @@ const baseReactESLintConfig = [
   {
     files: ['**/*.tsx'],
     rules: {
-      'unicorn/filename-case': [ERROR, { case: 'pascalCase' }],
+      'unicorn/filename-case': OFF,
       '@typescript-eslint/consistent-type-imports': [
         ERROR,
         {

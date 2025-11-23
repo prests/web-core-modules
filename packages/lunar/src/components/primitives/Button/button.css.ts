@@ -1,8 +1,8 @@
 import { createVar } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { themeContract } from '../../../tokens/tokens.css.js';
-import { withCustomOutline, withSafeTransition } from '../../../styles/utilities.css.js';
+import { themeContract } from '../../../themes/tokens/tokens.css.js';
+import { withCustomOutline, withSafeTransition } from '../../../themes/styles/utilities.js';
 
 const BUTTON_VARIANT__PRIMARY = 'primary';
 const BUTTON_VARIANT__SECONDARY = 'secondary';

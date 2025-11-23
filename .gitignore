@@ -9,6 +9,8 @@ lerna-debug.log*
 
 node_modules
 dist
+.react-router
+build
 dist-ssr
 *.local
 
@@ -23,7 +25,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
-
 
 *storybook.log
 storybook-static

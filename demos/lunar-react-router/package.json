@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "lunar-react-router",
+  "description": "React Router demo using Lunar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "____ RUN COMMANDS ____": "",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "____ BUILD COMMANDS ____": "",
+    "build": "react-router build",
+    "____ VALIDATION COMMANDS ____": "",
+    "typecheck": "react-router typegen && tsc -p ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@react-router/node": "^7.9.2",
+    "@react-router/serve": "^7.9.2",
+    "@wcm/lunar": "workspace:^",
+    "isbot": "^5.1.31",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router": "^7.9.2"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.9.2"
+  },
+  "license": "UNLICENSED"
+}

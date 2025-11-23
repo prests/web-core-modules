@@ -1,6 +1,6 @@
 import { createTheme, style } from '@vanilla-extract/css';
 
-import { themeContract } from '../tokens/tokens.css.js';
+import { themeContract } from './tokens/tokens.css.js';
 import {
   COLORS__PEARL,
   COLORS__GOLD,
@@ -9,11 +9,18 @@ import {
   COLORS__RED,
   COLORS__BLUE,
   COLORS__PURE,
-} from '../tokens/primitives/colors.js';
-import { SPACING } from '../tokens/primitives/spacing.js';
-import { BORDER_RADIUS, BORDER_WIDTH } from '../tokens/primitives/borders.js';
-import { BOX_SHADOW } from '../tokens/primitives/shadows.js';
-import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT__TIGHT, LINE_HEIGHT__RELAXED, LETTER_SPACING } from '../tokens/primitives/typography.js';
+} from './tokens/primitives/colors.js';
+import { SPACING } from './tokens/primitives/spacing.js';
+import { BORDER_RADIUS, BORDER_WIDTH } from './tokens/primitives/borders.js';
+import { BOX_SHADOW } from './tokens/primitives/shadows.js';
+import {
+  FONT_FAMILY,
+  FONT_SIZE,
+  FONT_WEIGHT,
+  LINE_HEIGHT__TIGHT,
+  LINE_HEIGHT__RELAXED,
+  LETTER_SPACING,
+} from './tokens/primitives/typography.js';
 
 const regalThemeVars = createTheme(themeContract, {
   colors: {
@@ -97,7 +104,7 @@ const regalThemeVars = createTheme(themeContract, {
     surface: {
       bg: {
         primary: `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[900]}))`, // Main background - lightest vs darkest
-        secondary: `light-dark(oklch(${COLORS__PEARL[100]}), oklch(${COLORS__PEARL[800]}))`, // Cards, panels
+        secondary: `light-dark(oklch(${COLORS__PEARL[50]}), oklch(${COLORS__PEARL[800]}))`, // Cards, panels
         tertiary: `light-dark(oklch(${COLORS__PEARL[200]}), oklch(${COLORS__PEARL[700]}))`, // Elevated surfaces
         interactive: {
           default: `light-dark(transparent, transparent)`, // Interactive surface base
@@ -229,7 +236,7 @@ const regalThemeVars = createTheme(themeContract, {
   },
   typography: {
     fontFamily: {
-      base: FONT_FAMILY.mono.primary,
+      base: FONT_FAMILY.sans.fallback,
     },
     display: {
       xl: {
@@ -726,4 +733,7 @@ const regalThemeVars = createTheme(themeContract, {
   },
 });
 
-export const regalTheme = style([regalThemeVars, { colorScheme: 'light dark' }]);
+export const regalTheme = style([
+  regalThemeVars,
+  { colorScheme: 'light dark', fontFamily: themeContract.typography.fontFamily.base },
+]);

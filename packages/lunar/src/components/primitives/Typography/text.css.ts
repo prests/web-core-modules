@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 
-import { themeContract } from '../../../tokens/tokens.css.js';
+import { themeContract } from '../../../themes/tokens/tokens.css.js';
 
 const TEXT_VARIANT__DISPLAY = 'display';
 const TEXT_VARIANT__HEADING = 'heading';

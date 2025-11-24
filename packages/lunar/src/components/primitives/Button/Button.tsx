@@ -21,6 +21,10 @@ interface ButtonProps extends ComponentProps<'button'> {
   size?: ButtonSize;
 }
 
+/**
+ * Versatile button component with multiple variants and sizes.
+ * Supports rendering as child components via Radix UI's Slot primitive for flexible composition.
+ */
 const Button: FC<ButtonProps> = ({ className, size, variant, asChild = false, ...props }) => {
   const Comp = asChild ? Slot : 'button';
 

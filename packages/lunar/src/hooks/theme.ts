@@ -1,11 +1,12 @@
 import { use } from 'react';
 
 import { ThemeContext } from '../themes/ThemeProvider/ThemeProvider.js';
+import { createUnitializedProviderError } from './utils.js';
 
 const useTheme = () => {
   const themeContext = use(ThemeContext);
   if (!themeContext) {
-    throw new Error('ThemeProvider is uninitialized');
+    throw createUnitializedProviderError('ThemeProvider');
   }
 
   return themeContext;

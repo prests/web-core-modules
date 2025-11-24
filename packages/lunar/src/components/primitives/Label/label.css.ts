@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { themeContract } from '../../../themes/tokens/tokens.css.js';
 
-export const label = style({
+const label = style({
   display: 'flex',
   alignItems: 'center',
   gap: themeContract.spacing[2],
@@ -35,3 +35,5 @@ export const label = style({
     },
   },
 });
+
+export { label };

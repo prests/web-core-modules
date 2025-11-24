@@ -15,6 +15,9 @@ interface TextProps extends ComponentProps<'h1'> {
    * HTML element to render as.
    */
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p' | 'small';
+  /**
+   * Text style variant that determines the overall visual appearance.
+   */
   variant?: TextType;
   /**
    * Visual size variant - independent of semantic HTML element.
@@ -31,6 +34,10 @@ interface TextProps extends ComponentProps<'h1'> {
   weight?: TextWeight;
 }
 
+/**
+ * Flexible text component that supports multiple HTML elements with consistent styling.
+ * Allows semantic HTML structure while providing design system typography variants.
+ */
 const Text: FC<TextProps> = ({ ref, className, asChild, as: tag, variant, size, color, weight, ...props }) => {
   const Comp = asChild ? Slot : tag;
 

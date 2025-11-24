@@ -197,6 +197,9 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1
         version: 1.17.4
+      dialog-closedby-polyfill:
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@vanilla-extract/recipes':
         specifier: 0.5.7
@@ -1723,6 +1726,9 @@ packages:
   destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
+
+  dialog-closedby-polyfill@1.1.0:
+    resolution: {integrity: sha512-A/7THz1NUfErs+Dh+4mza2uRaNe4rD5PaXVSetEOTXF9kSwFanmwV0RjHRrojXjxPk54pwxX19njKMq246IIGA==}
 
   diff@8.0.2:
     resolution: {integrity: sha512-sSuxWU5j5SR9QQji/o2qMvqRNYRDOcBTgsJ/DeCf4iSN4gW+gNMXM7wFIP+fdXZxoNiAnHUTGjCr+TSWXdRDKg==}
@@ -5153,6 +5159,8 @@ snapshots:
   dequal@2.0.3: {}
 
   destroy@1.2.0: {}
+
+  dialog-closedby-polyfill@1.1.0: {}
 
   diff@8.0.2: {}
 

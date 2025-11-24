@@ -1,4 +1,4 @@
-export const FONT_FAMILY = {
+const FONT_FAMILY = {
   sans: {
     primary: 'ui-sans-serif',
     system: 'system-ui',
@@ -30,7 +30,7 @@ export const FONT_FAMILY = {
   },
 } as const;
 
-export const FONT_SIZE = {
+const FONT_SIZE = {
   '3xs': '0.625rem', // 10px
   '2xs': '0.6875rem', // 11px
   xs: '0.9375rem', // 15px
@@ -48,7 +48,7 @@ export const FONT_SIZE = {
   '9xl': '10rem', // 160px
 } as const;
 
-export const FONT_WEIGHT = {
+const FONT_WEIGHT = {
   thin: '100',
   extralight: '200',
   light: '300',
@@ -60,7 +60,7 @@ export const FONT_WEIGHT = {
   black: '900',
 } as const;
 
-export const LINE_HEIGHT = {
+const LINE_HEIGHT = {
   none: '1',
   tight: '1.25',
   snug: '1.375',
@@ -77,7 +77,7 @@ export const LINE_HEIGHT = {
   10: '2.5rem',
 } as const;
 
-export const LINE_HEIGHT__TIGHT = {
+const LINE_HEIGHT__TIGHT = {
   '3xs': '0.75rem', // 12px (10 × 1.14 = 11.4 → 12px)
   '2xs': '0.75rem', // 12px (11 × 1.14 = 12.54 → 12px)
   xs: '1rem', // 16px (15 × 1.14 = 17.1 → 16px)
@@ -95,7 +95,7 @@ export const LINE_HEIGHT__TIGHT = {
   '9xl': '11.5rem', // 184px (160 × 1.14 = 182.4 → 184px)
 } as const;
 
-export const LINE_HEIGHT__RELAXED = {
+const LINE_HEIGHT__RELAXED = {
   '3xs': '1rem', // 16px (10 × 1.5 = 15 → 16px)
   '2xs': '1rem', // 16px (11 × 1.5 = 16.5 → 16px)
   xs: '1.5rem', // 24px (15 × 1.5 = 22.5 → 24px)
@@ -113,7 +113,7 @@ export const LINE_HEIGHT__RELAXED = {
   '9xl': '15rem', // 240px (160 × 1.5 = 240 → 240px)
 } as const;
 
-export const LETTER_SPACING = {
+const LETTER_SPACING = {
   tighter: '-0.05em',
   tight: '-0.025em',
   normal: '0em',
@@ -121,3 +121,5 @@ export const LETTER_SPACING = {
   wider: '0.05em',
   widest: '0.1em',
 } as const;
+
+export { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT, LINE_HEIGHT__TIGHT, LINE_HEIGHT__RELAXED, LETTER_SPACING };

@@ -31,13 +31,9 @@ export {
   BUTTON_SIZE__MEDIUM,
   BUTTON_SIZE__SMALL,
 } from './components/primitives/Button/button.css.js';
-
 export { default as Input } from './components/primitives/Input/Input.js';
-
 export { default as Label } from './components/primitives/Label/Label.js';
-
 export { default as Text, type TextProps } from './components/primitives/Typography/Text.js';
-
 export {
   Card,
   CardHeader,
@@ -74,6 +70,15 @@ export {
   TEXT_WEIGHT__MEDIUM,
   TEXT_WEIGHT__BOLD,
 } from './components/primitives/Typography/text.css.js';
+export {
+  Dialog,
+  DialogTrigger,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+} from './components/composite/Dialog/Dialog.js';
+export { useDialog } from './hooks/dialog.js';
 
 /**
  * Styling Utility Exports
@@ -81,7 +86,6 @@ export {
 export { withCustomOutline, withSafeTransition, withBreakpoint } from './themes/styles/utilities.js';
 
 export { BREAKPOINT__SM, BREAKPOINT__MD, BREAKPOINT__LG } from './constants/theming.js';
-
 export {
   COLORS__PURE,
   COLORS__STONE,
@@ -92,7 +96,6 @@ export {
   COLORS__YELLOW,
   COLORS__BLUE,
 } from './themes/tokens/primitives/colors.js';
-
 export { SPACING } from './themes/tokens/primitives/spacing.js';
 export { BORDER_RADIUS, BORDER_WIDTH } from './themes/tokens/primitives/borders.js';
 export { BOX_SHADOW } from './themes/tokens/primitives/shadows.js';

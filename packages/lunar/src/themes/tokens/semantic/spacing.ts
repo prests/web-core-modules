@@ -38,7 +38,7 @@ const SPACING = {
   96: null,
 } as const;
 
-export const semanticSpacing = {
+const semanticSpacing = {
   // Component spacing
   component: {
     xs: INTERNAL_SPACING[1], // 4px
@@ -72,4 +72,4 @@ export const semanticSpacing = {
   ...INTERNAL_SPACING,
 } as const;
 
-export { SPACING };
+export { SPACING, semanticSpacing };

@@ -27,7 +27,7 @@ import { COLORS__PURE } from '../tokens/primitives/colors.js';
  *   }
  * ]);
  */
-const withSafeTransition = (styles: CSSProperties): StyleRule => ({
+const withSafeTransition = (styles: StyleRule): StyleRule => ({
   '@media': {
     '(prefers-reduced-motion: no-preference)': styles,
   },

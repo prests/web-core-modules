@@ -733,7 +733,9 @@ const regalThemeVars = createTheme(themeContract, {
   },
 });
 
-export const regalTheme = style([
+const regalTheme = style([
   regalThemeVars,
   { colorScheme: 'light dark', fontFamily: themeContract.typography.fontFamily.base },
 ]);
+
+export { regalTheme };

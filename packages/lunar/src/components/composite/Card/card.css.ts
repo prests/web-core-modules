@@ -2,8 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { themeContract } from '../../../themes/tokens/tokens.css.js';
 
-// Base Card styles
-export const card = style({
+const card = style({
   backgroundColor: themeContract.colors.surface.bg.secondary,
   color: themeContract.colors.text.primary,
   display: 'flex',
@@ -16,8 +15,7 @@ export const card = style({
   boxShadow: themeContract.boxShadow.lg,
 });
 
-// Card Header styles with complex grid layout
-export const cardHeader = style({
+const cardHeader = style({
   containerType: 'inline-size',
   containerName: 'card-header',
   display: 'grid',
@@ -40,21 +38,18 @@ export const cardHeader = style({
   },
 });
 
-// Card Title styles
-export const cardTitle = style({
+const cardTitle = style({
   lineHeight: '1',
   fontWeight: themeContract.typography.body.md.bold.fontWeight,
 });
 
-// Card Description styles
-export const cardDescription = style({
+const cardDescription = style({
   color: themeContract.colors.text.secondary,
   fontSize: themeContract.typography.body.sm.medium.fontSize,
   lineHeight: themeContract.typography.body.sm.medium.lineHeight,
 });
 
-// Card Action styles with grid positioning
-export const cardAction = style({
+const cardAction = style({
   gridColumn: '2',
   gridRowStart: '1',
   gridRowEnd: 'span 2',
@@ -62,14 +57,12 @@ export const cardAction = style({
   justifySelf: 'end',
 });
 
-// Card Content styles
-export const cardContent = style({
+const cardContent = style({
   paddingLeft: themeContract.spacing[6],
   paddingRight: themeContract.spacing[6],
 });
 
-// Card Footer styles
-export const cardFooter = style({
+const cardFooter = style({
   display: 'flex',
   alignItems: 'center',
   paddingLeft: themeContract.spacing[6],
@@ -82,3 +75,5 @@ export const cardFooter = style({
     },
   },
 });
+
+export { card, cardTitle, cardAction, cardFooter, cardHeader, cardContent, cardDescription };

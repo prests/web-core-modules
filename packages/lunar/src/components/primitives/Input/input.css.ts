@@ -7,7 +7,7 @@ import { COLORS__PURE } from '../../../themes/tokens/primitives/colors.js';
 
 const input = style([
   withBreakpoint(BREAKPOINT__MD, {
-    fontSize: themeContract.typography.body.md.medium.fontSize,
+    fontSize: themeContract.typography.body.sm.medium.fontSize,
   }),
   withCustomOutline(themeContract.colors.shadow.focus),
   withSafeTransition({

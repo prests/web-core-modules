@@ -52,7 +52,7 @@ jobs:
       - name: Setup Job
         uses: ./.github/actions/setup-job
 
-      - name: Format Check
+      - name: Typecheck
         shell: bash
         run: pnpm run workspace:typecheck
 

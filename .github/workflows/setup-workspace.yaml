@@ -28,15 +28,6 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      - name: Cache PNPM Store
-        id: cache-deps
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-store-
-
       - name: Cache Turbo build setup
         id: cache-turbo
         uses: actions/cache@v4
@@ -46,8 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Install Dependencies (cache missing)
-        if: steps.cache-deps.outputs.cache-hit != 'true'
+      - name: Install Dependencies
         shell: bash
         run: pnpm install --frozen-lockfile --prefer-offline --config.ignore-scripts=true
 

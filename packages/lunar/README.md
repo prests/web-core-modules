@@ -1,0 +1,80 @@
+# Lunar
+
+A modern React component library inspired by Radix UI and ShadCN, built with TypeScript and Vanilla Extract for
+CSS-in-JS styling.
+
+## Overview
+
+Lunar provides a comprehensive set of accessible, customizable React components with a powerful theming system. It
+combines the accessibility features of Radix UI with a clean design aesthetic and flexible styling approach.
+
+## Installation
+
+> **Note:** This package is ESM-only and requires a Node.js environment that supports ES modules.
+
+```bash
+# Using pnpm (recommended)
+pnpm add @wcm/lunar
+
+# Using npm
+npm install @wcm/lunar
+
+# Using yarn
+yarn add @wcm/lunar
+```
+
+## Quick Start
+
+Wrap your application with the `ThemeProvider` and provide a theme:
+
+```tsx
+import { ThemeProvider } from '@wcm/lunar';
+import { regalTheme } from '@wcm/lunar/styles.css';
+
+function App() {
+  return (
+    <ThemeProvider themeClassName={regalTheme}>
+      <YourAppContent />
+    </ThemeProvider>
+  );
+}
+```
+
+## Development
+
+### Prerequisites
+
+- Node.js 24+
+- pnpm
+
+### Setup
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development mode
+pnpm dev
+
+# Build package
+pnpm build
+
+# Run type checking
+pnpm typecheck
+
+# Lint code
+pnpm lint
+```
+
+### Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── primitives/     # Basic UI components
+│   └── composite/      # Complex composed components
+├── themes/             # Theme system and tokens
+├── hooks/              # Custom React hooks
+├── constants/          # Shared constants
+└── types/              # TypeScript type definitions
+```

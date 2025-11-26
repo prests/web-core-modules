@@ -22,10 +22,10 @@ runs:
         restore-keys: |
           ${{ runner.os }}-turbo-
 
-    - name: Use Cached Build
-      shell: bash
-      run: pnpm run build
-
     - name: Use Cached Dependencies
       shell: bash
       run: pnpm install --frozen-lockfile --offline --config.ignore-scripts=true
+
+    - name: Use Cached Build
+      shell: bash
+      run: pnpm run build

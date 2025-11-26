@@ -4,21 +4,25 @@ A pnpm workspaces monorepo containing shared packages and modules for web applic
 
 ## Overview
 
-Web Core Modules (WCM) is a collection of reusable packages and demo applications focused on building modern React applications. The monorepo contains a design system, shared configurations, and example implementations.
+Web Core Modules (WCM) is a collection of reusable packages and demo applications focused on building modern React
+applications. The monorepo contains a design system, shared configurations, and example implementations.
 
 ## Quick Start
 
 1. Ensure you have Node.js 24+ installed:
+
    ```bash
    nvm use
    ```
 
 2. Install pnpm if you haven't already:
+
    ```bash
    npm install -g pnpm
    ```
 
 3. Install dependencies:
+
    ```bash
    pnpm install
    ```
@@ -31,10 +35,13 @@ Web Core Modules (WCM) is a collection of reusable packages and demo application
 ## Project Structure
 
 ### Packages
+
 - [`packages/lunar/`](./packages/lunar/README.md) - React component library inspired by Radix UI and ShadCN
-- [`packages/boiler-room/`](./packages/boiler-room/README.md) - Shared boilerplate configurations (ESLint, Prettier, TSConfig)
+- [`packages/boiler-room/`](./packages/boiler-room/README.md) - Shared boilerplate configurations (ESLint, Prettier,
+  TSConfig)
 
 ### Demos
+
 - [`demos/lunar-storybook/`](./demos/lunar-storybook/README.md) - Storybook showcase for Lunar components
 - [`demos/lunar-react-router/`](./demos/lunar-react-router/README.md) - React Router application using Lunar components
 
@@ -63,6 +70,7 @@ To add a new package:
 ## Contributing
 
 This monorepo uses:
+
 - **pnpm** for package management and workspaces
 - **TypeScript** for type safety
 - **ESLint** and **Prettier** for code quality

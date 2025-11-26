@@ -4,6 +4,12 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**", "build/**", "dist/**"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
     }
   }
 }

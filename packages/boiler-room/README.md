@@ -10,17 +10,15 @@ provides opinionated, production-ready configurations that can be easily shared 
 
 ## Installation
 
-Install the package and its peer dependencies:
-
 ```bash
 # Using pnpm (recommended)
-pnpm add -D @wcm/boiler-room eslint prettier typescript
+pnpm add -D @wcm/boiler-room
 
 # Using npm
-npm install --save-dev @wcm/boiler-room eslint prettier typescript
+npm install --save-dev @wcm/boiler-room
 
 # Using yarn
-yarn add --dev @wcm/boiler-room eslint prettier typescript
+yarn add --dev @wcm/boiler-room
 ```
 
 ## Available Configurations
@@ -43,6 +41,23 @@ export default nodeConfig;
 import { reactConfig } from '@wcm/boiler-room/eslint';
 
 export default reactConfig;
+```
+
+### Extending Configs
+
+```javascript
+// eslint.config.js
+import { reactConfig } from '@wcm/boiler-room/eslint';
+
+export default [
+  ...reactConfig,
+  {
+    rules: {
+      // Your custom rules
+      'no-console': 'error',
+    },
+  },
+];
 ```
 
 ### Prettier Configuration
@@ -117,30 +132,20 @@ export { default } from '@wcm/boiler-room/prettier';
 }
 ```
 
-## Configuration Details
+### Extending Configs
 
-### ESLint Features
-
-- **Modern JavaScript/TypeScript** support
-- **React-specific** rules for React projects
-- **Accessibility** rules (jsx-a11y)
-- **Import/export** validation
-- **Unicorn** rules for best practices
-- **Prettier integration** for consistent formatting
-
-### Prettier Features
-
-- **Consistent formatting** across projects
-- **Optimized for readability**
-- **Integrates seamlessly** with ESLint
-
-### TypeScript Features
-
-- **Strict type checking** enabled
-- **Modern ES features** support
-- **Path mapping** support
-- **Different output formats** (CJS/ESM)
-- **Optimized** for different environments (browser/node)
+```json
+// tsconfig.json
+{
+  "extends": "@wcm/boiler-room/tsconfig/browser.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  }
+}
+```
 
 ## Development
 
@@ -175,40 +180,4 @@ src/
 ├── eslint/           # ESLint configurations
 ├── prettier/         # Prettier configurations
 └── tsconfig/         # TypeScript configurations
-```
-
-## Extending Configurations
-
-You can extend any configuration to add project-specific rules:
-
-### Custom ESLint Rules
-
-```javascript
-// eslint.config.js
-import { reactConfig } from '@wcm/boiler-room/eslint';
-
-export default [
-  ...reactConfig,
-  {
-    rules: {
-      // Your custom rules
-      'no-console': 'error',
-    },
-  },
-];
-```
-
-### Custom TypeScript Settings
-
-```json
-// tsconfig.json
-{
-  "extends": "@wcm/boiler-room/tsconfig/browser.json",
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"]
-    }
-  }
-}
 ```

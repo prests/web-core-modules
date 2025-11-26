@@ -10,94 +10,31 @@ combines the accessibility features of Radix UI with a clean design aesthetic an
 
 ## Installation
 
-Install the package and its peer dependencies:
-
 ```bash
 # Using pnpm (recommended)
-pnpm add @wcm/lunar @vanilla-extract/css @vanilla-extract/recipes @vanilla-extract/sprinkles clsx react react-dom
+pnpm add @wcm/lunar
 
 # Using npm
-npm install @wcm/lunar @vanilla-extract/css @vanilla-extract/recipes @vanilla-extract/sprinkles clsx react react-dom
+npm install @wcm/lunar
 
 # Using yarn
-yarn add @wcm/lunar @vanilla-extract/css @vanilla-extract/recipes @vanilla-extract/sprinkles clsx react react-dom
+yarn add @wcm/lunar
 ```
 
 ## Quick Start
 
-Wrap your application with the `ThemeProvider` and import the base styles:
+Wrap your application with the `ThemeProvider` and provide a theme:
 
 ```tsx
 import { ThemeProvider } from '@wcm/lunar';
-import '@wcm/lunar/styles.css';
+import { regalTheme } from '@wcm/lunar/styles.css';
 
 function App() {
   return (
-    <ThemeProvider>
+    <ThemeProvider themeClassName={regalTheme}>
       <YourAppContent />
     </ThemeProvider>
   );
-}
-```
-
-### Basic Component Usage
-
-```tsx
-import { Button, Card, CardHeader, CardContent, Text } from '@wcm/lunar';
-
-function Example() {
-  return (
-    <Card>
-      <CardHeader>
-        <Text variant="heading">Welcome to Lunar</Text>
-      </CardHeader>
-      <CardContent>
-        <Text variant="body">Start building beautiful interfaces with Lunar components.</Text>
-        <Button variant="primary">Get Started</Button>
-      </CardContent>
-    </Card>
-  );
-}
-```
-
-## Available Components
-
-### Primitives
-
-- **Button** - Flexible button component with multiple variants and sizes
-- **Input** - Form input with consistent styling
-- **Label** - Accessible label component
-- **Text** - Typography component with semantic variants
-
-### Composites
-
-- **Card** - Container component with header, content, and footer sections
-- **Dialog** - Modal dialog with accessibility features
-
-### Utilities
-
-- **ThemeProvider** - Context provider for theming
-- **useTheme** - Hook for accessing theme state
-- **useDialog** - Hook for dialog state management
-
-## Theming System
-
-Lunar includes a comprehensive theming system with:
-
-- **Color Schemes**: Light, dark, and system modes
-- **Design Tokens**: Consistent spacing, typography, colors, and shadows
-- **Responsive Breakpoints**: Mobile-first responsive design
-- **CSS Variables**: Runtime theme switching
-
-### Theme Usage
-
-```tsx
-import { useTheme } from '@wcm/lunar';
-
-function ThemeToggle() {
-  const { colorScheme, setColorScheme } = useTheme();
-
-  return <Button onClick={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')}>Toggle Theme</Button>;
 }
 ```
 
@@ -138,13 +75,4 @@ src/
 ├── hooks/              # Custom React hooks
 ├── constants/          # Shared constants
 └── types/              # TypeScript type definitions
-```
-
-## TypeScript Support
-
-Lunar is built with TypeScript and provides full type definitions. All components export their prop types for better
-development experience.
-
-```tsx
-import type { ButtonProps, TextProps } from '@wcm/lunar';
 ```

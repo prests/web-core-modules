@@ -35,6 +35,7 @@ const baseNodeESLintConfig = [
     rules: {
       'unicorn/no-null': OFF,
       'unicorn/prevent-abbreviations': OFF,
+      'unicorn/no-nested-ternary': OFF,
     },
   },
 
@@ -55,12 +56,16 @@ const baseNodeESLintConfig = [
       },
     },
     rules: {
-      '@typescript-eslint/consistent-type-imports': [ERROR, { disallowTypeAnnotations: false }],
+      '@typescript-eslint/consistent-type-imports': [
+        ERROR,
+        { prefer: 'type-imports', disallowTypeAnnotations: false, fixStyle: 'separate-type-imports' },
+      ],
       '@typescript-eslint/consistent-type-exports': [ERROR, { fixMixedExportsWithInlineTypeSpecifier: false }],
       'func-names': ERROR,
       '@typescript-eslint/no-empty-function': ERROR,
       'unicorn/no-null': OFF,
       'unicorn/prevent-abbreviations': OFF,
+      'unicorn/no-nested-ternary': OFF,
     },
   },
 ] as Linter.Config[];

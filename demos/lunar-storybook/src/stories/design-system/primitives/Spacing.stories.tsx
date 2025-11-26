@@ -22,7 +22,7 @@ export const AllSpacing: Story = {
     <div style={{ padding: '32px', fontFamily: 'system-ui, sans-serif' }}>
       {Object.entries(SPACING).map(([token, value]) => {
         const pixelEquivalent =
-          value === '0' ? '0px' : (value === '1px' ? '1px' : `${(Number.parseFloat(value) * 16).toString()}px`);
+          value === '0' ? '0px' : value === '1px' ? '1px' : `${(Number.parseFloat(value) * 16).toString()}px`;
 
         return (
           <div key={token} style={{ marginBottom: '24px' }}>

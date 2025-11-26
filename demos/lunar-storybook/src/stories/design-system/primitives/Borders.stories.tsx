@@ -25,9 +25,9 @@ export const BorderRadius: Story = {
         const pixelEquivalent =
           value === '0'
             ? '0px'
-            : (value === '9999px'
+            : value === '9999px'
               ? 'full (9999px)'
-              : `${(Number.parseFloat(value) * 16).toString()}px`);
+              : `${(Number.parseFloat(value) * 16).toString()}px`;
 
         return (
           <div key={token} style={{ marginBottom: '24px' }}>

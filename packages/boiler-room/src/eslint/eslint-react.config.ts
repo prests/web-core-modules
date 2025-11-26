@@ -31,27 +31,11 @@ const baseReactESLintConfig = [
   reactRefresh.configs.recommended,
   ...storybook.configs['flat/recommended'],
 
-  /* Storybook files can use PascalCase naming */
-  {
-    files: ['**/*.stories.{ts,tsx,js,jsx}'],
-    rules: {
-      'unicorn/filename-case': OFF,
-    },
-  },
-
   /* React component files (.tsx) can use PascalCase naming */
   {
-    files: ['**/*.tsx'],
+    files: ['**/*.stories.{ts,tsx,js,jsx}', '**/*.tsx'],
     rules: {
       'unicorn/filename-case': OFF,
-      '@typescript-eslint/consistent-type-imports': [
-        ERROR,
-        {
-          prefer: 'type-imports',
-          disallowTypeAnnotations: false,
-          fixStyle: 'separate-type-imports',
-        },
-      ],
     },
   },
 ] as Linter.Config[];

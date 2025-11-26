@@ -18,7 +18,7 @@
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
     "typecheck": "pnpm -r typecheck",
-    "format": "prettier --write .",
+    "format": "prettier --config ./prettier.config.ts --write .",
     "format:verify": "prettier --list-different .",
     "____ CLEANUP COMMANDS ____": "",
     "clean:modules": "rimraf --glob '**/node_modules'",

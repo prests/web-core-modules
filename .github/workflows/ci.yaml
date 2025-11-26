@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  Setup:
+    name: Setup Workspace
+    uses: ./.github/workflows/setup-workspace.yaml
+    with:
+      node-version: 24.0.2
+      pnpm-version: 10.6.3
+
+  Linting:
+    name: Check Linting
+    runs-on: ubuntu-latest
+    needs: Setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
+
+      - name: Lint Check
+        shell: bash
+        run: pnpm run lint
+
+  Formatting:
+    name: Check Formatting
+    runs-on: ubuntu-latest
+    needs: Setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
+
+      - name: Format Check
+        shell: bash
+        run: pnpm run format:verify
+
+  Typecheck:
+    name: Check Typing
+    runs-on: ubuntu-latest
+    needs: Setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
+
+      - name: Format Check
+        shell: bash
+        run: pnpm run typecheck
+
+  Tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    needs: Setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
+
+      - name: Unit Tests
+        shell: bash
+        run: pnpm run test
+
+  Build:
+    name: Build App
+    runs-on: ubuntu-latest
+    needs: Setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
+
+      - name: Build
+        shell: bash
+        run: pnpm run build

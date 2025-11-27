@@ -1,18 +1,18 @@
-# Web Core Modules
+# Lunar Workspace
 
-A pnpm workspaces monorepo containing shared packages and modules for web applications.
+A pnpm workspaces monorepo containing shared packages for the Lunar project and modules for web applications.
 
 ## Overview
 
-Web Core Modules (WCM) is a collection of reusable packages and demo applications focused on building modern React
-applications. The monorepo contains a design system, shared configurations, and example implementations.
+Lunar is a collection of reusable packages and demo applications focused on building modern React applications. The
+monorepo contains a design system, shared configurations, and example implementations.
 
 ## Quick Start
 
-1. Ensure you have Node.js 24+ installed:
+1. Ensure you are using the project specified node version:
 
    ```bash
-   nvm use
+   nvm use # may need to run `nvm install` before you can use the node version
    ```
 
 2. Install pnpm if you haven't already:

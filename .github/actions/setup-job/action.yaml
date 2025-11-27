@@ -1,5 +1,12 @@
 name: Setup Job
 description: Setup job environment and cached dependencies for reusability across jobs
+
+inputs:
+  skip-build:
+    description: 'Skip the build step'
+    required: false
+    default: 'false'
+
 runs:
   using: 'composite'
   steps:
@@ -27,5 +34,6 @@ runs:
       run: pnpm install --frozen-lockfile --offline --config.ignore-scripts=true
 
     - name: Use Cached Build
+      if: ${{ inputs.skip-build != 'true' }}
       shell: bash
       run: pnpm run workspace:build

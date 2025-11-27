@@ -62,5 +62,5 @@
     "react": "^19",
     "react-dom": "^19"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }

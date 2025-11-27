@@ -25,5 +25,5 @@
   "devDependencies": {
     "@react-router/dev": "^7.9.2"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }

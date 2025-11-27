@@ -50,5 +50,5 @@
     "vite": "^7.0.6",
     "vitest": "^4.0.0"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }

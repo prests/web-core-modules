@@ -14,6 +14,7 @@ jobs:
   Linting:
     name: Check Linting
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: Setup
     steps:
       - name: Checkout Code
@@ -29,6 +30,7 @@ jobs:
   Formatting:
     name: Check Formatting
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: Setup
     steps:
       - name: Checkout Code
@@ -44,6 +46,7 @@ jobs:
   Typecheck:
     name: Check Typing
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: Setup
     steps:
       - name: Checkout Code
@@ -59,6 +62,7 @@ jobs:
   Tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: Setup
     steps:
       - name: Checkout Code
@@ -74,6 +78,7 @@ jobs:
   Build:
     name: Build App
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     needs: Setup
     steps:
       - name: Checkout Code

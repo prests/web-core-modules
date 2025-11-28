@@ -2,6 +2,11 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "web-core-modules",
   "description": "A pnpm workspaces monorepo for various WCM (Web Core Modules) shared packages/modules",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunar-js/lunar.git"
+  },
+  "homepage": "https://github.com/lunar-js/lunar#readme",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.5.2",

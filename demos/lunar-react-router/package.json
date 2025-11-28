@@ -2,6 +2,12 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "lunar-react-router",
   "description": "React Router demo using Lunar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunar-js/lunar.git",
+    "directory": "demos/lunar-react-router"
+  },
+  "homepage": "https://github.com/lunar-js/lunar/tree/main/demos/lunar-react-router#readme",
   "private": true,
   "type": "module",
   "scripts": {

@@ -2,6 +2,12 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "lunar-storybook",
   "description": "Storybook project for Lunar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunar-js/lunar.git",
+    "directory": "demos/lunar-storybook"
+  },
+  "homepage": "https://github.com/lunar-js/lunar/tree/main/demos/lunar-storybook#readme",
   "private": true,
   "type": "module",
   "scripts": {

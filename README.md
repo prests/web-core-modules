@@ -1,78 +1,24 @@
-# Lunar Workspace
+# Lunar
 
-A pnpm workspaces monorepo containing shared packages for the Lunar project and modules for web applications.
+> Designing at the frontier
 
-## Overview
+- 🔒 CSP Safe Components (In progress)
+- 🧱 Highly Composable Components
+- 🎨 Rich Design Systems (or bring your own!)
 
-Lunar is a collection of reusable packages and demo applications focused on building modern React applications. The
-monorepo contains a design system, shared configurations, and example implementations.
+Lunar, components design to be out of this world, aims to use the latest web standards for creating modern composable
+components.
 
-## Quick Start
+# Packages
 
-1. Ensure you are using the project specified node version:
+| Package                 | Version (click for changelogs)                                                                              |
+| ----------------------- | :---------------------------------------------------------------------------------------------------------- |
+| [lunar](packages/lunar) | [![lunar version](https://img.shields.io/npm/v/@lunar-js/lunar.svg?label=%20)](packages/lunar/CHANGELOG.md) |
 
-   ```bash
-   nvm use # may need to run `nvm install` before you can use the node version
-   ```
+## Contribution
 
-2. Install pnpm if you haven't already:
+See [Contributing Guide](CONTRIBUTING.md).
 
-   ```bash
-   npm install -g pnpm
-   ```
+## License
 
-3. Install dependencies:
-
-   ```bash
-   pnpm install
-   ```
-
-4. Build all packages:
-   ```bash
-   pnpm build
-   ```
-
-## Project Structure
-
-### Packages
-
-- [`packages/lunar/`](./packages/lunar/README.md) - React component library inspired by Radix UI and ShadCN
-- [`packages/boiler-room/`](./packages/boiler-room/README.md) - Shared boilerplate configurations (ESLint, Prettier,
-  TSConfig)
-
-### Demos
-
-- [`demos/lunar-storybook/`](./demos/lunar-storybook/README.md) - Storybook showcase for Lunar components
-- [`demos/lunar-react-router/`](./demos/lunar-react-router/README.md) - React Router application using Lunar components
-
-## Development
-
-### Available Scripts
-
-- `pnpm build` - Build all packages
-- `pnpm dev:lunar-storybook` - Start Lunar development with Storybook
-- `pnpm dev:lunar-react-router` - Start Lunar development with React Router demo
-- `pnpm test` - Run tests for all packages
-- `pnpm lint` - Lint all packages
-- `pnpm lint:fix` - Fix linting issues
-- `pnpm typecheck` - Type check all packages
-- `pnpm format` - Format code with Prettier
-
-### Adding New Packages
-
-To add a new package:
-
-1. Create a new directory in `packages/` or `demos/`
-2. Add a `package.json` with a unique name
-3. Run `pnpm install` to link workspace dependencies
-4. Add the package to the root `pnpm-workspace.yaml` if needed
-
-## Contributing
-
-This monorepo uses:
-
-- **pnpm** for package management and workspaces
-- **TypeScript** for type safety
-- **ESLint** and **Prettier** for code quality
-- **Vanilla Extract** for CSS-in-JS styling
-- **Vite** for building and development
+[MIT](LICENSE).

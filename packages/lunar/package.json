@@ -2,6 +2,12 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@lunar-js/lunar",
   "description": "Lunar is a radix/shadcn inspired component/design library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunar-js/lunar.git",
+    "directory": "packages/lunar"
+  },
+  "homepage": "https://github.com/lunar-js/lunar/tree/main/packages/lunar#readme",
   "version": "0.0.1",
   "type": "module",
   "types": "./dist/index.d.ts",

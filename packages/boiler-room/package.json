@@ -1,10 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@lunar-js/boiler-room",
+  "description": "This package contains various boilerplate files/configs for node applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunar-js/lunar.git",
+    "directory": "packages/boiler-room"
+  },
+  "homepage": "https://github.com/lunar-js/lunar/tree/main/packages/boiler-room#readme",
   "version": "1.0.0",
   "type": "module",
   "packageManager": "pnpm@10.5.2",
-  "description": "This package contains various boilerplate files/configs for node applications",
   "exports": {
     "./eslint": {
       "import": {

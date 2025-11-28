@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@wcm/lunar",
+  "name": "@lunar-js/lunar",
   "description": "Lunar is a radix/shadcn inspired component/design library",
   "version": "0.0.1",
   "type": "module",

@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
 
-import { regalTheme, themeContract } from '@wcm/lunar/src/index.css.js';
+import { regalTheme, themeContract } from '@lunar-js/lunar/src/index.css.js';
 
 import { darkColorScheme, lightColorScheme, systemColorScheme } from './main.css.js';
 import ColorSchemeWrapper from './components/decorators/ColorSchemeWrapper.js';

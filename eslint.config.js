@@ -1,3 +1,3 @@
-import { baseNodeESLintConfig } from '@wcm/boiler-room/eslint';
+import { baseNodeESLintConfig } from '@lunar-js/boiler-room/eslint';
 
 export default [...baseNodeESLintConfig];

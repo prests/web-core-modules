@@ -1,4 +1,4 @@
-import { Button, BUTTON_VARIANT__OUTLINE } from '@wcm/lunar';
+import { Button, BUTTON_VARIANT__OUTLINE } from '@lunar-js/lunar';
 
 const HomePage = () => {
   return (

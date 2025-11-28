@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 /**
- * NOTE: This import pattern (@wcm/lunar/src/index.css.js) is not the normal way to import @wcm/lunar.
+ * NOTE: This import pattern (@lunar-js/lunar/src/index.css.js) is not the normal way to import @lunar-js/lunar.
  * This is done specifically for Storybook to promote better React docgen and ensure consistent
  * styling with vanilla-extract by importing CSS tokens directly. For proper import examples,
  * see the demos in /demos/lunar-react-router.
  */
-import { themeContract } from '@wcm/lunar/src/index.css.js';
+import { themeContract } from '@lunar-js/lunar/src/index.css.js';
 
 const meta = {
   title: 'Design System/Semantic/Themes',

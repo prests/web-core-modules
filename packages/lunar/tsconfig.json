@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@wcm/boiler-room/tsconfig/browser.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/browser.json",
   "include": ["*.ts", "src", "tsdown.config.ts"],
   "exclude": ["dist", "node_modules"]
 }

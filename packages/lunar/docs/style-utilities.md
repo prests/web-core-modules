@@ -22,7 +22,7 @@ This ensures animations only run when users haven't requested reduced motion.
 ```typescript
 import { style } from '@vanilla-extract/css';
 
-import { withSafeTransition } from '@wcm/lunar';
+import { withSafeTransition } from '@lunar-js/lunar';
 
 // Simple usage
 const fadeTransition = style([
@@ -65,7 +65,7 @@ Creates a custom focus outline style object that follows the design system's out
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { themeContract, withCustomOutline } from '@wcm/lunar';
+import { themeContract, withCustomOutline } from '@lunar-js/lunar';
 
 // Simple usage with hex color
 const redOutlineButton = style([

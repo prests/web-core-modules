@@ -1,7 +1,7 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 
-import { ThemeProvider } from '@wcm/lunar';
-import { regalTheme } from '@wcm/lunar/styles.css';
+import { ThemeProvider } from '@lunar-js/lunar';
+import { regalTheme } from '@lunar-js/lunar/styles.css';
 
 import type { Route } from './+types/root';
 

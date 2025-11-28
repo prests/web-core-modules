@@ -1,0 +1,44 @@
+name: PR Quality
+
+on:
+  pull_request:
+
+jobs:
+  Setup:
+    name: Setup Workspace
+    uses: ./.github/workflows/setup-workspace.yaml
+
+  changeset-validation:
+    name: Validate Changesets
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: Setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
+        with:
+          skip-build: 'true'
+
+      - name: Check for Changeset Files
+        id: check-changesets
+        run: |
+          changeset_count=$(find .changeset -name "*.md" ! -name "README.md" | wc -l)
+          if [[ $changeset_count -gt 0 ]]; then
+            echo "has_changesets=true" >> $GITHUB_OUTPUT
+            echo "changeset_files=$(find .changeset -name "*.md" ! -name "README.md" | tr '\n' ' ')" >> $GITHUB_OUTPUT
+          else
+            echo "has_changesets=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate Changeset Format
+        if: steps.check-changesets.outputs.has_changesets == 'true'
+        run: |
+          echo "📝 Validating changeset files..."
+          echo "Changed files: ${{ steps.check-changesets.outputs.changeset_files }}"
+          echo ""
+          pnpm run changelog:validate

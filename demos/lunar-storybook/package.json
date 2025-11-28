@@ -19,7 +19,7 @@
     "clean:build": "rimraf storybook-static"
   },
   "dependencies": {
-    "@wcm/lunar": "workspace:^",
+    "@lunar-js/lunar": "workspace:^",
     "react": "catalog:",
     "react-dom": "catalog:"
   },

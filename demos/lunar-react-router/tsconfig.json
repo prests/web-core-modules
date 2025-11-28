@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@wcm/boiler-room/tsconfig/esm.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/esm.json",
   "compilerOptions": {
     "rootDirs": [".", "./.react-router/types"],
     "types": ["node", "vite/client"]

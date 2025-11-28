@@ -14,13 +14,13 @@ combines the accessibility features of Radix UI with a clean design aesthetic an
 
 ```bash
 # Using pnpm (recommended)
-pnpm add @wcm/lunar
+pnpm add @lunar-js/lunar
 
 # Using npm
-npm install @wcm/lunar
+npm install @lunar-js/lunar
 
 # Using yarn
-yarn add @wcm/lunar
+yarn add @lunar-js/lunar
 ```
 
 ## Quick Start
@@ -28,8 +28,8 @@ yarn add @wcm/lunar
 Wrap your application with the `ThemeProvider` and provide a theme:
 
 ```tsx
-import { ThemeProvider } from '@wcm/lunar';
-import { regalTheme } from '@wcm/lunar/styles.css';
+import { ThemeProvider } from '@lunar-js/lunar';
+import { regalTheme } from '@lunar-js/lunar/styles.css';
 
 function App() {
   return (

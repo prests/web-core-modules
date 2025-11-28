@@ -11,6 +11,7 @@ jobs:
   setup:
     name: Setup Workspace
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
@@ -40,8 +41,3 @@ jobs:
       - name: Install Dependencies
         shell: bash
         run: pnpm install --frozen-lockfile --prefer-offline --config.ignore-scripts=true
-
-      - name: Build Packages (cache missing)
-        if: steps.cache-deps.outputs.cache-hit != 'true'
-        shell: bash
-        run: pnpm run workspace:build

@@ -14,13 +14,13 @@ provides opinionated, production-ready configurations that can be easily shared 
 
 ```bash
 # Using pnpm (recommended)
-pnpm add -D @wcm/boiler-room
+pnpm add -D @lunar-js/boiler-room
 
 # Using npm
-npm install --save-dev @wcm/boiler-room
+npm install --save-dev @lunar-js/boiler-room
 
 # Using yarn
-yarn add --dev @wcm/boiler-room
+yarn add --dev @lunar-js/boiler-room
 ```
 
 ## Available Configurations
@@ -31,7 +31,7 @@ yarn add --dev @wcm/boiler-room
 
 ```javascript
 // eslint.config.js
-import { nodeConfig } from '@wcm/boiler-room/eslint';
+import { nodeConfig } from '@lunar-js/boiler-room/eslint';
 
 export default nodeConfig;
 ```
@@ -40,7 +40,7 @@ export default nodeConfig;
 
 ```javascript
 // eslint.config.js
-import { reactConfig } from '@wcm/boiler-room/eslint';
+import { reactConfig } from '@lunar-js/boiler-room/eslint';
 
 export default reactConfig;
 ```
@@ -49,7 +49,7 @@ export default reactConfig;
 
 ```javascript
 // eslint.config.js
-import { reactConfig } from '@wcm/boiler-room/eslint';
+import { reactConfig } from '@lunar-js/boiler-room/eslint';
 
 export default [
   ...reactConfig,
@@ -66,7 +66,7 @@ export default [
 
 ```javascript
 // prettier.config.js
-export { default } from '@wcm/boiler-room/prettier';
+export { default } from '@lunar-js/boiler-room/prettier';
 ```
 
 ### TypeScript Configurations
@@ -76,7 +76,7 @@ export { default } from '@wcm/boiler-room/prettier';
 ```json
 // tsconfig.json
 {
-  "extends": "@wcm/boiler-room/tsconfig/base.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/base.json",
   "compilerOptions": {
     "outDir": "./dist"
   },
@@ -89,7 +89,7 @@ export { default } from '@wcm/boiler-room/prettier';
 ```json
 // tsconfig.json
 {
-  "extends": "@wcm/boiler-room/tsconfig/browser.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/browser.json",
   "compilerOptions": {
     "outDir": "./dist"
   },
@@ -102,7 +102,7 @@ export { default } from '@wcm/boiler-room/prettier';
 ```json
 // tsconfig.json
 {
-  "extends": "@wcm/boiler-room/tsconfig/node.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/node.json",
   "compilerOptions": {
     "outDir": "./dist"
   },
@@ -115,7 +115,7 @@ export { default } from '@wcm/boiler-room/prettier';
 ```json
 // tsconfig.cjs.json
 {
-  "extends": "@wcm/boiler-room/tsconfig/cjs.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/cjs.json",
   "compilerOptions": {
     "outDir": "./dist/cjs"
   }
@@ -127,7 +127,7 @@ export { default } from '@wcm/boiler-room/prettier';
 ```json
 // tsconfig.esm.json
 {
-  "extends": "@wcm/boiler-room/tsconfig/esm.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/esm.json",
   "compilerOptions": {
     "outDir": "./dist/esm"
   }
@@ -139,7 +139,7 @@ export { default } from '@wcm/boiler-room/prettier';
 ```json
 // tsconfig.json
 {
-  "extends": "@wcm/boiler-room/tsconfig/browser.json",
+  "extends": "@lunar-js/boiler-room/tsconfig/browser.json",
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {

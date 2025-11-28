@@ -1,4 +1,4 @@
-import { basePrettierConfig } from '@wcm/boiler-room/prettier';
+import { basePrettierConfig } from '@lunar-js/boiler-room/prettier';
 
 export default {
   ...basePrettierConfig,

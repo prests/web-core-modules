@@ -186,7 +186,7 @@ const getReleaseLine = async (changeset, _type, options = {}) => {
 
   if (allUsers.length > 0) {
     const userLinks = allUsers.map(user => `[@${user}](https://github.com/${user})`).join(', ');
-    metadataParts.push(`Thanks ${userLinks}!`);
+    metadataParts.push(`Thanks astronaut ${userLinks}!`);
   }
 
   // Add separator and metadata if we have any metadata

@@ -8,6 +8,10 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   Setup:
     name: Setup Workspace

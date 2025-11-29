@@ -4,6 +4,10 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   Verify:
     name: Verify Main Branch
@@ -11,6 +15,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Verify Main Branch
+        shell: bash
         run: |
           if [ "${{ github.ref_name }}" != "main" ]; then
             echo "❌ Error: This workflow can only be run from the main branch"

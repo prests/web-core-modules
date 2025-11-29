@@ -97,3 +97,5 @@ The following supported types are:
 - deprecate -> used when marking functionality as deprecated
 - security -> reserved for security vulnerability fixes
 - remove -> used when removing exposed functionality
+
+[Example Changeset](https://github.com/lunar-js/lunar/pull/17/files#diff-ccabc03af80b7952ed53f6ef69782d331db521d90cad815c26933f0b4d2ee5ff).

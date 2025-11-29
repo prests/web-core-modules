@@ -5,7 +5,27 @@
  * I can totally come back to this if there are any issues.
  */
 
+import { getInfo, getInfoFromPullRequest } from '@changesets/get-github-info';
 import { SECTION_MAP } from './constants.js';
+
+/**
+ * Extract users from changeset summary
+ * Looks for patterns like "author: @username" or "user: username"
+ */
+const extractUsersFromSummary = summary => {
+  const users = [];
+  const lines = summary.split('\n');
+
+  for (const line of lines) {
+    // Match patterns like "author: @username", "user: username", etc.
+    const match = line.match(/^\s*(?:author|user):\s*@?([^\s]+)/i);
+    if (match) {
+      users.push(match[1]);
+    }
+  }
+
+  return users;
+};
 
 /**
  * Extract semantic type from changeset summary
@@ -34,7 +54,7 @@ const extractTypeFromSummary = summary => {
 };
 
 /**
- * Clean the summary by removing the semantic type prefix
+ * Clean the summary by removing the semantic type prefix and user attribution lines
  */
 const cleanSummary = (summary, type) => {
   const lines = summary.split('\n');
@@ -50,12 +70,71 @@ const cleanSummary = (summary, type) => {
     lines[0] = firstLine.slice(type.length + 1).trim();
   }
 
-  return lines.join('\n');
+  // Remove user attribution lines (author: or user: lines) and PR lines
+  const cleanedLines = lines.filter(line => {
+    return !line.match(/^\s*(?:author|user|pr|pull|pull\s+request):\s*/i);
+  });
+
+  return cleanedLines.join('\n');
 };
 
-const getReleaseLine = async changeset => {
+const getReleaseLine = async (changeset, _type, options = {}) => {
   const semanticType = extractTypeFromSummary(changeset.summary);
+  const manualUsers = extractUsersFromSummary(changeset.summary);
+
+  // Extract PR number from summary (like in pasted code)
+  let prFromSummary;
+  changeset.summary.replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_match, pr) => {
+    let num = Number(pr);
+    if (!isNaN(num)) prFromSummary = num;
+    return '';
+  });
+
   const cleanedSummary = cleanSummary(changeset.summary, semanticType);
+
+  // Simple GitHub info fetching
+  let githubUsers = [];
+  let prLink = null;
+
+  if (options.repo) {
+    try {
+      if (prFromSummary) {
+        // Fetch PR info if PR number found
+        const { links } = await getInfoFromPullRequest({
+          repo: options.repo,
+          pull: prFromSummary,
+        });
+        if (links.user) {
+          githubUsers = [
+            links.user
+              .replace(/[@\[\]()]/g, '')
+              .split('/')
+              .pop(),
+          ];
+        }
+        prLink = links.pull;
+      } else if (changeset.commit) {
+        // Fallback to commit info
+        const { links } = await getInfo({
+          repo: options.repo,
+          commit: changeset.commit,
+        });
+        if (links.user) {
+          githubUsers = [
+            links.user
+              .replace(/[@\[\]()]/g, '')
+              .split('/')
+              .pop(),
+          ];
+        }
+      }
+    } catch (error) {
+      // Gracefully handle GitHub API errors (missing token, rate limits, etc.)
+    }
+  }
+
+  // Combine users (manual takes priority, then GitHub)
+  const allUsers = [...new Set([...manualUsers, ...githubUsers])];
 
   const [firstLine, ...futureLines] = cleanedSummary.split('\n').map(l => l.trimEnd());
 
@@ -67,8 +146,25 @@ const getReleaseLine = async changeset => {
 
   let returnVal = `- ${firstLine}${typeComment}`;
 
+  // Build metadata section (PR, commit, user attribution)
+  const metadataParts = [];
+
+  if (prLink) {
+    metadataParts.push(prLink);
+  }
+
   if (commitHash) {
-    returnVal += ` ([${commitHash}])`;
+    metadataParts.push(`([${commitHash}])`);
+  }
+
+  if (allUsers.length > 0) {
+    const userLinks = allUsers.map(user => `[@${user}](https://github.com/${user})`).join(', ');
+    metadataParts.push(`Thanks astronaut ${userLinks}!`);
+  }
+
+  // Add separator and metadata if we have any metadata
+  if (metadataParts.length > 0) {
+    returnVal += ` - ${metadataParts.join(' ')}`;
   }
 
   if (futureLines.length > 0) {
@@ -179,9 +275,9 @@ const formatDate = (date = new Date()) => {
  * @param {Record<"major" | "minor" | "patch", Array<Promise<string>>>} changelogLines
  * @param {any} changelogOpts
  */
-const getChangelogEntry = async (release, changelogLines, _changelogOpts) => {
+const getChangelogEntry = async (release, changelogLines, changelogOpts) => {
   // Group changes by their semantic types
-  const sections = await groupChangesByType(changelogLines);
+  const sections = await groupChangesByType(changelogLines, changelogOpts);
 
   // Sort sections by priority
   const sortedSectionNames = Object.keys(sections).sort((a, b) => {

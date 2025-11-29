@@ -1,7 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "web-core-modules",
+  "name": "lunar-workspace",
   "description": "A pnpm workspaces monorepo for various WCM (Web Core Modules) shared packages/modules",
+  "author": "Shayne Preston",
   "repository": {
     "type": "git",
     "url": "https://github.com/lunar-js/lunar.git"

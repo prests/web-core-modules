@@ -8,7 +8,7 @@
     "directory": "packages/boiler-room"
   },
   "homepage": "https://github.com/lunar-js/lunar/tree/main/packages/boiler-room#readme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "packageManager": "pnpm@10.5.2",
   "exports": {

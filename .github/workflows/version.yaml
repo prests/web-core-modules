@@ -31,6 +31,7 @@ jobs:
     name: Create Version PR
     needs: Setup
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -41,6 +42,10 @@ jobs:
         uses: ./.github/actions/setup-job
         with:
           skip-build: 'true'
+
+      - name: Setup formatter
+        shell: bash
+        run: pnpm -F @lunar-js/boiler-room build
 
       - name: Create Release Pull Request
         uses: changesets/action@v1

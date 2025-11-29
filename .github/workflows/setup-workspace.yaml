@@ -7,6 +7,10 @@ on:
         value: ${{ jobs.setup.outputs.cache-hit }}
         description: Indicates if cache was restored successfully
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   setup:
     name: Setup Workspace

@@ -6,6 +6,8 @@ on:
       - main
   pull_request:
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   Setup:
     name: Setup Workspace

@@ -9,6 +9,14 @@ import { getInfo, getInfoFromPullRequest } from '@changesets/get-github-info';
 import { SECTION_MAP } from './constants.js';
 
 /**
+ * Read environment variables for GitHub configuration
+ */
+const readEnv = () => {
+  const GITHUB_SERVER_URL = process.env.GITHUB_SERVER_URL || 'https://github.com';
+  return { GITHUB_SERVER_URL };
+};
+
+/**
  * Extract users from changeset summary
  * Looks for patterns like "author: @username" or "user: username"
  */
@@ -82,19 +90,28 @@ const getReleaseLine = async (changeset, _type, options = {}) => {
   const semanticType = extractTypeFromSummary(changeset.summary);
   const manualUsers = extractUsersFromSummary(changeset.summary);
 
-  // Extract PR number from summary (like in pasted code)
+  // Extract PR number and commit hash from summary
   let prFromSummary;
+  let commitFromSummary;
+
   changeset.summary.replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_match, pr) => {
     let num = Number(pr);
     if (!isNaN(num)) prFromSummary = num;
     return '';
   });
 
+  changeset.summary.replace(/^\s*commit:\s*([^\s]+)/im, (_match, commit) => {
+    commitFromSummary = commit;
+    return '';
+  });
+
   const cleanedSummary = cleanSummary(changeset.summary, semanticType);
 
-  // Simple GitHub info fetching
+  // Enhanced GitHub info fetching with proper link generation
+  const { GITHUB_SERVER_URL } = readEnv();
   let githubUsers = [];
   let prLink = null;
+  let commitLink = null;
 
   if (options.repo) {
     try {
@@ -113,11 +130,18 @@ const getReleaseLine = async (changeset, _type, options = {}) => {
           ];
         }
         prLink = links.pull;
-      } else if (changeset.commit) {
+
+        // If we also have a commit from summary, create a commit link
+        if (commitFromSummary) {
+          const shortCommitId = commitFromSummary.slice(0, 7);
+          commitLink = `[\`${shortCommitId}\`](${GITHUB_SERVER_URL}/${options.repo}/commit/${commitFromSummary})`;
+        }
+      } else if (changeset.commit || commitFromSummary) {
         // Fallback to commit info
+        const commitToFetchFrom = commitFromSummary || changeset.commit;
         const { links } = await getInfo({
           repo: options.repo,
-          commit: changeset.commit,
+          commit: commitToFetchFrom,
         });
         if (links.user) {
           githubUsers = [
@@ -126,6 +150,12 @@ const getReleaseLine = async (changeset, _type, options = {}) => {
               .split('/')
               .pop(),
           ];
+        }
+
+        // Create commit link
+        if (commitToFetchFrom) {
+          const shortCommitId = commitToFetchFrom.slice(0, 7);
+          commitLink = `[\`${shortCommitId}\`](${GITHUB_SERVER_URL}/${options.repo}/commit/${commitToFetchFrom})`;
         }
       }
     } catch (error) {
@@ -138,28 +168,25 @@ const getReleaseLine = async (changeset, _type, options = {}) => {
 
   const [firstLine, ...futureLines] = cleanedSummary.split('\n').map(l => l.trimEnd());
 
-  // Extract commit hash if available (first 7 chars)
-  const commitHash = changeset.commit ? changeset.commit.slice(0, 7) : null;
-
   // Preserve the original semantic type info as a hidden comment for grouping
   const typeComment = semanticType ? `<!-- type:${semanticType} -->` : '';
 
   let returnVal = `- ${firstLine}${typeComment}`;
 
-  // Build metadata section (PR, commit, user attribution)
+  // Build metadata section (PR, commit, user attribution) - following pasted code style
   const metadataParts = [];
 
   if (prLink) {
     metadataParts.push(prLink);
   }
 
-  if (commitHash) {
-    metadataParts.push(`([${commitHash}])`);
+  if (commitLink) {
+    metadataParts.push(commitLink);
   }
 
   if (allUsers.length > 0) {
     const userLinks = allUsers.map(user => `[@${user}](https://github.com/${user})`).join(', ');
-    metadataParts.push(`Thanks astronaut ${userLinks}!`);
+    metadataParts.push(`Thanks ${userLinks}!`);
   }
 
   // Add separator and metadata if we have any metadata

@@ -73,7 +73,7 @@
     {
       "path": "./dist/index.js",
       "import": "{}",
-      "limit": "20 B"
+      "limit": "0 B"
     }
   ],
   "license": "MIT"

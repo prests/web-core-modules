@@ -41,7 +41,6 @@
   "files": [
     "dist/",
     "src/",
-    "eslint-rules/",
     "*.md"
   ],
   "scripts": {

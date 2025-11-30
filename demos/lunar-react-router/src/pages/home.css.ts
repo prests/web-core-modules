@@ -32,5 +32,4 @@ const formInput = style({
   padding: '5px',
 });
 
-// Export all styles at the bottom
 export { mainContainer, sectionDivider, finalSection, customButton, formContainer, formInput };

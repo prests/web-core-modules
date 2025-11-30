@@ -9,12 +9,14 @@ import {
   DialogFooter,
 } from '@lunar-js/lunar';
 
+import { mainContainer, sectionDivider, finalSection, customButton, formContainer, formInput } from './home.css';
+
 const HomePage = () => {
   return (
-    <main style={{ padding: '20px' }}>
+    <main className={mainContainer}>
       <h1>Lunar Dialog SSR Testing</h1>
 
-      <div style={{ margin: '20px 0', borderBottom: '1px solid #ccc', paddingBottom: '20px' }}>
+      <div className={sectionDivider}>
         <h2>Basic Dialog Test</h2>
         <p>Tests basic dialog functionality with SSR compatibility</p>
         <Dialog renderTrigger={() => <DialogTrigger>Open Basic Dialog</DialogTrigger>}>
@@ -34,7 +36,7 @@ const HomePage = () => {
         </Dialog>
       </div>
 
-      <div style={{ margin: '20px 0', borderBottom: '1px solid #ccc', paddingBottom: '20px' }}>
+      <div className={sectionDivider}>
         <h2>Close Behavior Test</h2>
         <p>Tests different closedby attribute values</p>
         <Dialog
@@ -59,22 +61,12 @@ const HomePage = () => {
         </Dialog>
       </div>
 
-      <div style={{ margin: '20px 0' }}>
+      <div className={finalSection}>
         <h2>Custom Trigger Test</h2>
         <p>Tests renderTrigger prop functionality with SSR</p>
         <Dialog
           renderTrigger={openDialog => (
-            <button
-              style={{
-                background: 'linear-gradient(45deg, #007bff, #28a745)',
-                color: 'white',
-                border: 'none',
-                padding: '10px 20px',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
-              onClick={openDialog}
-            >
+            <button className={customButton} onClick={openDialog}>
               🚀 Custom Styled Trigger
             </button>
           )}
@@ -86,14 +78,9 @@ const HomePage = () => {
             <div>
               <p>This dialog uses the renderTrigger prop to provide a custom trigger element.</p>
               <p>This tests that custom triggers work correctly with SSR and hydration.</p>
-              <form style={{ margin: '10px 0' }}>
+              <form className={formContainer}>
                 <label htmlFor="testInput">Test form input:</label>
-                <input
-                  id="testInput"
-                  type="text"
-                  placeholder="Test focus management"
-                  style={{ margin: '0 10px', padding: '5px' }}
-                />
+                <input id="testInput" type="text" placeholder="Test focus management" className={formInput} />
               </form>
             </div>
             <DialogFooter>

@@ -1,5 +1,13 @@
 # @lunar-js/boiler-room
 
+## 0.1.0 (2025-11-30)
+
+### Added
+
+- expose semantic OFF, WARN, ERROR values for linting rules -
+  [`df61985`](https://github.com/lunar-js/lunar/commit/df61985907bef2c30bdd92e18a5089b68b586953) Thanks astronaut
+  [@prests](https://github.com/prests)!
+
 ## 0.0.2 (2025-11-30)
 
 ### Changed

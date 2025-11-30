@@ -6,8 +6,8 @@
 - 🧱 Highly Composable Components
 - 🎨 Rich Design Systems (or bring your own!)
 
-Lunar, components design to be out of this world, aims to use the latest web standards for creating modern composable
-components.
+Lunar, components designed to be out of this world, aims to use the latest web standards for creating modern,
+composable, acessible, and CSP safe components.
 
 # Packages
 

@@ -1,12 +1,13 @@
 # Lunar
 
-A modern React component library inspired by Radix UI and ShadCN, built with TypeScript and Vanilla Extract for
-CSS-in-JS styling.
+> Designing at the frontier
 
-## Overview
+- 🔒 CSP Safe Components (In progress)
+- 🧱 Highly Composable Components
+- 🎨 Rich Design Systems (or bring your own!)
 
-Lunar provides a comprehensive set of accessible, customizable React components with a powerful theming system. It
-combines the accessibility features of Radix UI with a clean design aesthetic and flexible styling approach.
+Lunar, components designed to be out of this world, aims to use the latest web standards for creating modern,
+composable, acessible, and CSP safe components.
 
 ## Installation
 

@@ -148,38 +148,3 @@ export { default } from '@lunar-js/boiler-room/prettier';
   }
 }
 ```
-
-## Development
-
-### Prerequisites
-
-- Node.js 24+
-- pnpm
-
-### Setup
-
-```bash
-# Install dependencies
-pnpm install
-
-# Start development mode
-pnpm dev
-
-# Build package
-pnpm build
-
-# Run type checking
-pnpm typecheck
-
-# Lint code
-pnpm lint
-```
-
-### Project Structure
-
-```
-src/
-├── eslint/           # ESLint configurations
-├── prettier/         # Prettier configurations
-└── tsconfig/         # TypeScript configurations
-```
